@@ -509,8 +509,9 @@ Atribuições Técnicas e pelo `SyncPayloadHistory`.
 
 #### G4. API de Integração e API Keys — ✅ Em produção
 
-- **Dois esquemas de autenticação em paralelo**: JWT Bearer (usuários) e **API Key**
-  (serviço a serviço) — `backend/Program.cs`.
+- **Dois esquemas de autenticação em paralelo**: JWT Bearer (usuários, header `Authorization:
+  Bearer <token>`) e **API Key** (serviço a serviço, header **`X-API-Key`** —
+  `Authentication/ApiKeyAuthenticationOptions.cs:8`) — registrados em `backend/Program.cs:123`.
 - `ApiKeyController`: emissão, listagem, **regeneração** (`POST /ApiKey/regenerate`),
   **ativação/desativação** (`PATCH /ApiKey/toggle`) e exclusão.
 - Documentação **Swagger/OpenAPI** publicada pela própria API.

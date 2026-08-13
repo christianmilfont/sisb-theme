@@ -151,10 +151,21 @@ add_action( 'init', 'sisb_modules_rewrite_rules' );
  * módulos não exija visita manual a Configurações → Links permanentes.
  */
 function sisb_modules_maybe_flush_rules() {
-    $signature = md5( implode( '|', array_keys( sisb_modules_registry() ) ) . SISB_VERSION );
+    $slugs = array_keys( sisb_modules_registry() );
+
+    if ( function_exists( 'sisb_static_pages' ) ) {
+        $slugs = array_merge( $slugs, array_keys( sisb_static_pages() ) );
+    }
+
+    $signature = md5( implode( '|', $slugs ) . SISB_VERSION );
 
     if ( get_option( 'sisb_modules_signature' ) !== $signature ) {
         sisb_modules_rewrite_rules();
+
+        if ( function_exists( 'sisb_pages_rewrite_rules' ) ) {
+            sisb_pages_rewrite_rules();
+        }
+
         flush_rewrite_rules();
         update_option( 'sisb_modules_signature', $signature );
     }
@@ -308,10 +319,16 @@ add_filter( 'document_title_parts', 'sisb_modules_document_title' );
 function sisb_head_meta() {
     $module = sisb_current_module();
 
+    $static = function_exists( 'sisb_current_static_page' ) ? sisb_current_static_page() : null;
+
     if ( $module ) {
         $title       = $module['title'];
         $description = $module['summary'];
         $canonical   = sisb_module_url( $module['slug'] );
+    } elseif ( $static ) {
+        $title       = $static['title'];
+        $description = $static['summary'];
+        $canonical   = sisb_static_page_url( $static['slug'] );
     } elseif ( sisb_is_modules_index() ) {
         $title       = __( 'Módulos', 'sisb' );
         $description = __( 'Os módulos do SISB, organizados por coleta em campo, gestão e conformidade, e plataforma.', 'sisb' );
@@ -374,7 +391,9 @@ function sisb_module_part( $part, $module ) {
  * @return string
  */
 function sisb_anchor( $anchor ) {
-    $on_virtual_page = sisb_current_module() || sisb_is_modules_index();
+    $on_virtual_page = sisb_current_module()
+        || sisb_is_modules_index()
+        || ( function_exists( 'sisb_current_static_page' ) && sisb_current_static_page() );
 
     if ( is_front_page() && ! $on_virtual_page ) {
         return $anchor;

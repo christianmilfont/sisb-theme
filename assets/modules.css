@@ -1,12 +1,12 @@
 /*
- * Páginas de módulo — /modulos/ e /modulos/<slug>/
+ * Páginas internas — /modulos/, /modulos/<slug>/, páginas institucionais e 404.
  *
  * Carregado apenas nessas rotas (ver sisb_scripts em functions.php), para que
  * a home não pague por CSS que não usa.
  *
  * Reaproveita os tokens e os componentes já definidos em style.css
- * (.module, .feat, .browser, .eyebrow, .section-title, .btn). O que segue
- * cobre somente o que é específico das páginas internas.
+ * (.module, .feat, .browser, .eyebrow, .section-title, .btn, .steps, .cards).
+ * O que segue cobre somente o que é específico das páginas internas.
  */
 
 /* ============ TRILHA DE NAVEGAÇÃO ============ */
@@ -90,3 +90,70 @@
 @media(min-width:900px){.module-cta-inner{grid-template-columns:1fr auto}}
 .module-cta p{margin-top:12px;max-width:560px;font-size:1rem;line-height:1.65;color:rgba(245,247,251,.7)}
 .module-cta .btn{white-space:nowrap}
+
+/* ===================================================================
+   PÁGINAS INSTITUCIONAIS (/seguranca/, /api/, /faq/)
+   =================================================================== */
+
+/* Texto corrido */
+.prose{max-width:760px}
+.prose h2{margin-top:48px;font-size:1.35rem}
+.prose h2:first-child{margin-top:0}
+.prose h3{margin-top:28px;font-size:1.05rem;font-weight:700}
+.prose p{margin-top:14px;font-size:1rem;line-height:1.75;color:var(--muted-fg)}
+.prose ul{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.prose ul li{position:relative;padding-left:22px;font-size:.95rem;line-height:1.7;color:var(--muted-fg)}
+.prose ul li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;
+  border-radius:999px;background:var(--primary)}
+.prose strong{color:var(--navy);font-weight:600}
+.prose a{color:var(--primary-deep);text-decoration:underline;text-underline-offset:2px}
+
+/* Tabela de especificação */
+.spec-wrap{margin-top:24px;overflow-x:auto;border:1px solid var(--border);border-radius:12px}
+.spec{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+.spec th,.spec td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.spec thead th{background:var(--surface);font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--muted-fg)}
+.spec tbody tr:last-child th,.spec tbody tr:last-child td{border-bottom:0}
+.spec tbody th{font-weight:600;color:var(--navy);white-space:nowrap}
+.spec td{color:var(--muted-fg);line-height:1.6}
+
+/* Nota destacada */
+.note{margin-top:24px;padding:20px 22px;border-radius:12px;border:1px solid var(--border);
+  background:var(--surface);display:flex;gap:14px;align-items:flex-start}
+.note svg{flex-shrink:0;color:var(--primary-deep);margin-top:2px}
+.note p{margin:0;font-size:.9rem;line-height:1.7;color:var(--muted-fg)}
+.note strong{color:var(--navy)}
+
+/* FAQ — details/summary, acessível sem JavaScript */
+.faq-group{margin-top:40px}
+.faq-group > h2{font-size:1.15rem}
+.faq-list{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.faq-item{border:1px solid var(--border);border-radius:12px;background:var(--card);overflow:hidden}
+.faq-item summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;font-weight:600;font-size:.98rem;color:var(--navy)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";flex-shrink:0;font-size:1.25rem;font-weight:400;
+  color:var(--primary-deep);line-height:1}
+.faq-item[open] summary::after{content:"−"}
+.faq-item summary:hover{background:var(--surface)}
+.faq-item summary:focus-visible{outline:2px solid var(--primary);outline-offset:-2px}
+.faq-answer{padding:0 20px 20px;font-size:.94rem;line-height:1.75;color:var(--muted-fg)}
+.faq-answer p + p{margin-top:12px}
+
+/* Grade de cartões de garantia */
+.assurance{margin-top:40px;display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:640px){.assurance{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.assurance{grid-template-columns:repeat(3,1fr)}}
+.assurance .card{padding:24px;border:1px solid var(--border);background:var(--card);
+  border-radius:16px;box-shadow:var(--shadow-soft)}
+.assurance .card .ico{width:44px;height:44px;display:grid;place-items:center;border-radius:10px;
+  background:rgba(47,143,92,.1);color:var(--primary-deep)}
+.assurance .card h3{margin-top:16px;font-size:1rem;font-weight:700}
+.assurance .card p{margin-top:8px;font-size:.88rem;line-height:1.65;color:var(--muted-fg)}
+
+/* Bloco de código */
+.code{margin-top:20px;padding:18px 20px;border-radius:12px;background:var(--navy-2);
+  color:var(--navy-foreground);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.82rem;line-height:1.7;overflow-x:auto}
+.code .c{color:rgba(245,247,251,.5)}

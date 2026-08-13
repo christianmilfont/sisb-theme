@@ -22,6 +22,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a class="skip-link" href="#conteudo"><?php esc_html_e( 'Pular para o conteúdo', 'sisb' ); ?></a>
+
 <header class="site-header" id="top">
   <div class="container nav-inner">
     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand">
@@ -69,12 +71,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </span>
       <?php endif; ?>
       <a href="<?php echo esc_url( sisb_anchor( '#como-funciona' ) ); ?>"><?php esc_html_e( 'Como funciona', 'sisb' ); ?></a>
-      <a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Setores', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#diferenciais' ) ); ?>"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a>
+      <?php foreach ( sisb_get_static_pages( true ) as $sisb_page_slug => $sisb_page ) : ?>
+        <a href="<?php echo esc_url( sisb_static_page_url( $sisb_page_slug ) ); ?>"><?php echo esc_html( $sisb_page['nav_label'] ); ?></a>
+      <?php endforeach; ?>
       <a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Contato', 'sisb' ); ?></a>
     </nav>
     <a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>" class="btn btn-primary nav-cta"><?php esc_html_e( 'Agendar Demonstração', 'sisb' ); ?></a>
-    <button class="menu-toggle" id="sisbMenuToggle" aria-label="Menu" aria-expanded="false">
+    <button class="menu-toggle" id="sisbMenuToggle" type="button"
+            aria-label="<?php esc_attr_e( 'Abrir menu', 'sisb' ); ?>"
+            aria-controls="sisbMobileMenu" aria-expanded="false">
       <?php echo sisb_icon( 'menu', 24 ); ?>
     </button>
   </div>
@@ -92,8 +98,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <?php endforeach; ?>
       <?php endif; ?>
       <a href="<?php echo esc_url( sisb_anchor( '#como-funciona' ) ); ?>"><?php esc_html_e( 'Como funciona', 'sisb' ); ?></a>
-      <a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Setores', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#diferenciais' ) ); ?>"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a>
+      <?php foreach ( sisb_get_static_pages( true ) as $sisb_page_slug => $sisb_page ) : ?>
+        <a href="<?php echo esc_url( sisb_static_page_url( $sisb_page_slug ) ); ?>"><?php echo esc_html( $sisb_page['nav_label'] ); ?></a>
+      <?php endforeach; ?>
       <a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Contato', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>" class="btn btn-primary"><?php esc_html_e( 'Agendar Demonstração', 'sisb' ); ?></a>
     </div>
