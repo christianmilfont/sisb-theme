@@ -21,27 +21,42 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <div>
           <div class="t"><?php esc_html_e( 'Produto', 'sisb' ); ?></div>
           <ul>
-            <li><a href="#funcionalidades"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></a></li>
-            <li><a href="#plataforma"><?php esc_html_e( 'Gestão de Inspeções', 'sisb' ); ?></a></li>
-            <li><a href="#plataforma"><?php esc_html_e( 'Mobile', 'sisb' ); ?></a></li>
-            <li><a href="#plataforma"><?php esc_html_e( 'Relatórios', 'sisb' ); ?></a></li>
+            <?php if ( sisb_get_modules() ) : ?>
+              <li><a href="<?php echo esc_url( sisb_modules_url() ); ?>"><?php esc_html_e( 'Módulos', 'sisb' ); ?></a></li>
+            <?php endif; ?>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#plataforma' ) ); ?>"><?php esc_html_e( 'A plataforma', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#como-funciona' ) ); ?>"><?php esc_html_e( 'Como funciona', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#diferenciais' ) ); ?>"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Operação em escala', 'sisb' ); ?></a></li>
           </ul>
         </div>
         <div>
-          <div class="t"><?php esc_html_e( 'Mercados', 'sisb' ); ?></div>
+          <div class="t"><?php esc_html_e( 'Recursos', 'sisb' ); ?></div>
           <ul>
-            <li><a href="#contato"><?php esc_html_e( 'Agências Reguladoras', 'sisb' ); ?></a></li>
-            <li><a href="#contato"><?php esc_html_e( 'Secretarias Estaduais', 'sisb' ); ?></a></li>
-            <li><a href="#contato"><?php esc_html_e( 'Empresas de Engenharia', 'sisb' ); ?></a></li>
-            <li><a href="#contato"><?php esc_html_e( 'Concessionárias', 'sisb' ); ?></a></li>
+            <?php foreach ( sisb_get_static_pages() as $ft_slug => $ft_page ) : ?>
+              <li><a href="<?php echo esc_url( sisb_static_page_url( $ft_slug ) ); ?>"><?php echo esc_html( $ft_page['nav_label'] ); ?></a></li>
+            <?php endforeach; ?>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Setores atendidos', 'sisb' ); ?></a></li>
           </ul>
         </div>
         <div>
           <div class="t"><?php esc_html_e( 'Contato', 'sisb' ); ?></div>
           <ul>
-            <li><a href="mailto:contato@sisb.gov.br">E-mail</a></li>
-            <li><a href="#contato"><?php esc_html_e( 'Telefone', 'sisb' ); ?></a></li>
-            <li><a href="#contato">LinkedIn</a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?></a></li>
+            <?php
+            $f_email    = sisb_contact_field( 'email' );
+            $f_phone    = sisb_contact_field( 'phone' );
+            $f_linkedin = sisb_contact_field( 'linkedin' );
+            ?>
+            <?php if ( $f_email ) : ?>
+              <li><a href="mailto:<?php echo esc_attr( $f_email ); ?>"><?php echo esc_html( $f_email ); ?></a></li>
+            <?php endif; ?>
+            <?php if ( $f_phone ) : ?>
+              <li><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $f_phone ) ); ?>"><?php echo esc_html( $f_phone ); ?></a></li>
+            <?php endif; ?>
+            <?php if ( $f_linkedin ) : ?>
+              <li><a href="<?php echo esc_url( $f_linkedin ); ?>" target="_blank" rel="noopener">LinkedIn</a></li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>

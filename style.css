@@ -1,8 +1,8 @@
 /*
 Theme Name: SISB - Fiscalização de Barragens
-Theme URI: https://sisb.gov.br
+Theme URI: https://github.com/christianmilfont/sisb-theme
 Author: SISB
-Author URI: https://sisb.gov.br
+Author URI: https://github.com/christianmilfont/sisb-theme
 Description: Tema institucional premium do SISB (Sistema Integrado de Fiscalização de Barragens). Landing page para captação de leads e solicitações de demonstração. Tom corporativo, executivo, com identidade visual verde institucional e navy.
 Version: 1.0.0
 Requires at least: 5.6
@@ -210,6 +210,7 @@ input,textarea,select{font:inherit}
 @media(min-width:640px){.result-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.result-grid{grid-template-columns:repeat(5,1fr)}}
 .result{padding:24px;border:1px solid var(--border);background:var(--card);border-radius:16px;box-shadow:var(--shadow-soft)}
+.result .ico{width:44px;height:44px;display:grid;place-items:center;border-radius:10px;background:rgba(47,143,92,.1);color:var(--primary-deep)}
 .result-v{font-family:var(--font-display);font-weight:800;font-size:1.75rem;color:var(--primary-deep)}
 .result-l{margin-top:8px;font-size:.9rem;font-weight:600;color:var(--navy)}
 .result p{margin-top:8px;font-size:.75rem;line-height:1.6;color:var(--muted-fg)}
@@ -265,7 +266,92 @@ input,textarea,select{font:inherit}
 .footer-cols a:hover{color:var(--primary-deep)}
 .copyright{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--muted-fg)}
 
+/* ============ ACESSIBILIDADE ============
+   Requisitos de e-MAG / WCAG 2.1 AA para venda a órgão público. */
+
+/* Atalho para o conteúdo: invisível até receber foco por teclado */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;padding:12px 20px;
+  background:var(--navy);color:var(--navy-foreground);font-size:14px;font-weight:600;
+  border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+
+/* Foco visível consistente. O navegador só desenha o anel em navegação por
+   teclado (:focus-visible), então isso não polui o clique de mouse. */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+select:focus-visible,summary:focus-visible,details:focus-visible{
+  outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+.dark-section a:focus-visible,.module-cta a:focus-visible,.contact a:focus-visible,
+.module-destaque a:focus-visible{outline-color:#fff}
+
+/* ============ COMPONENTES COMPARTILHADOS ============
+   Usados na home e nas páginas internas, por isso vivem aqui e não em
+   assets/modules.css. */
+
+/* Card de módulo clicável */
+.module-link{display:flex;flex-direction:column}
+.module-summary{margin-top:16px;flex:1;font-size:.9rem;line-height:1.65;color:var(--muted-fg)}
+.module-more{margin-top:20px;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;
+  font-weight:600;color:var(--primary-deep)}
+.module-more svg{transition:transform .2s}
+.module-link:hover .module-more svg{transform:translateX(3px)}
+
+/* Passos numerados */
+.steps{margin-top:48px;display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1200px){.steps.cols-4{grid-template-columns:repeat(4,1fr)}}
+.step{display:flex;gap:16px;padding:24px;border:1px solid var(--border);background:var(--card);border-radius:16px;box-shadow:var(--shadow-soft)}
+.step-n{flex-shrink:0;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;
+  background:var(--navy);color:var(--navy-foreground);font-family:var(--font-display);font-weight:800;font-size:.85rem}
+.step h3{font-size:1rem;font-weight:700}
+.step p{margin-top:6px;font-size:.9rem;line-height:1.65;color:var(--muted-fg)}
+
+/* Cabeçalho de grupo dentro de uma seção */
+.group-head{margin-top:48px;display:flex;align-items:center;gap:10px;padding-bottom:12px;
+  border-bottom:1px solid var(--border)}
+.group-head:first-of-type{margin-top:40px}
+.group-head svg{color:var(--primary-deep)}
+.group-head h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-fg)}
+.group-head .cards,.cards.tight{margin-top:24px}
+
 /* fade-up */
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both}
 .delay-1{animation-delay:.12s}
+
+/* ============ MEGA-MENU DE MÓDULOS ============
+   Fica em style.css (e não em assets/modules.css) porque o cabeçalho é
+   renderizado em todas as páginas, inclusive na home. Abre por :hover e por
+   :focus-within, para que a navegação por teclado funcione sem JavaScript. */
+.has-mega{position:relative}
+.mega-trigger{display:inline-flex;align-items:center;gap:6px}
+.mega-trigger svg{transition:transform .2s}
+.has-mega:hover .mega-trigger svg,.has-mega:focus-within .mega-trigger svg{transform:rotate(180deg)}
+.mega{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);
+  width:min(94vw,860px);padding:24px;border-radius:16px;border:1px solid var(--border);
+  background:var(--card);box-shadow:var(--shadow-elegant);
+  opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;z-index:50}
+.has-mega:hover .mega,.has-mega:focus-within .mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.mega-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mega-col-title{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--muted-fg);padding-bottom:10px;
+  border-bottom:1px solid var(--border)}
+.mega-col-title svg{color:var(--primary-deep)}
+.mega-col ul{margin-top:12px;display:flex;flex-direction:column;gap:2px}
+.mega-col a{display:block;padding:8px 10px;border-radius:8px;font-size:14px;font-weight:500;
+  color:var(--navy);transition:background .16s,color .16s}
+.mega-col a:hover,.mega-col a:focus-visible{background:var(--surface);color:var(--primary-deep)}
+.mega-foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.mega-foot a{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--primary-deep)}
+@media(max-width:1023px){.mega{display:none}}
+
+/* Módulos dentro do menu mobile */
+.mobile-group-title{margin-top:14px;font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--muted-fg)}
+.mobile-menu a.mobile-sub{padding-left:12px;font-size:14px;color:var(--muted-fg)}
+
+/* Respeita quem pediu menos movimento */
+@media(prefers-reduced-motion:reduce){
+  .fade-up{animation:none}
+  .mega{transition:none}
+  .module-more svg,.mega-trigger svg{transition:none}
+}
