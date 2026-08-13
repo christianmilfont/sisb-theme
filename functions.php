@@ -65,24 +65,118 @@ function sisb_get_contact_email() {
 }
 
 /**
- * Admin setting for the recipient e-mail
+ * Dados públicos de contato exibidos no site.
+ *
+ * Nenhum valor vem preenchido: campo vazio simplesmente não é renderizado.
+ * Isso evita que placeholders ("0000-0000", "/company/sisb") vão ao ar.
+ *
+ * Configurável em Configurações → Geral, ou por constante no wp-config.php:
+ *   SISB_PUBLIC_EMAIL · SISB_PUBLIC_PHONE · SISB_PUBLIC_LINKEDIN · SISB_APP_URL
+ *
+ * @param string $key email|phone|linkedin
+ * @return string Valor configurado ou string vazia.
+ */
+function sisb_contact_field( $key ) {
+    $constants = array(
+        'email'    => 'SISB_PUBLIC_EMAIL',
+        'phone'    => 'SISB_PUBLIC_PHONE',
+        'linkedin' => 'SISB_PUBLIC_LINKEDIN',
+    );
+
+    if ( isset( $constants[ $key ] ) && defined( $constants[ $key ] ) && constant( $constants[ $key ] ) ) {
+        return trim( (string) constant( $constants[ $key ] ) );
+    }
+
+    return trim( (string) get_option( 'sisb_public_' . $key, '' ) );
+}
+
+/**
+ * Rótulo do endereço da aplicação, usado no mockup de navegador do hero.
+ * Sem configuração, cai no próprio domínio do site — nunca em um domínio inventado.
+ */
+function sisb_app_url_label() {
+    $url = '';
+
+    if ( defined( 'SISB_APP_URL' ) && SISB_APP_URL ) {
+        $url = (string) SISB_APP_URL;
+    } else {
+        $url = (string) get_option( 'sisb_app_url', '' );
+    }
+
+    if ( $url ) {
+        return preg_replace( '#^https?://#', '', untrailingslashit( trim( $url ) ) );
+    }
+
+    $host = wp_parse_url( home_url(), PHP_URL_HOST );
+
+    return $host ? $host . '/painel' : 'painel';
+}
+
+/**
+ * Campos de configuração do tema (Configurações → Geral)
  */
 function sisb_register_settings() {
-    register_setting( 'general', 'sisb_contact_email', array(
-        'type'              => 'string',
-        'sanitize_callback' => 'sanitize_email',
-        'default'           => '',
-    ) );
-    add_settings_field(
-        'sisb_contact_email',
-        __( 'E-mail do formulário SISB', 'sisb' ),
-        function() {
-            $val = esc_attr( get_option( 'sisb_contact_email', '' ) );
-            echo '<input type="email" name="sisb_contact_email" value="' . $val . '" class="regular-text" placeholder="' . esc_attr( get_option( 'admin_email' ) ) . '" />';
-            echo '<p class="description">' . esc_html__( 'Endereço que recebe as solicitações de demonstração. Se vazio, usa o e-mail do administrador.', 'sisb' ) . '</p>';
-        },
-        'general'
+    $fields = array(
+        'sisb_contact_email' => array(
+            'label'       => __( 'E-mail do formulário SISB', 'sisb' ),
+            'type'        => 'email',
+            'sanitize'    => 'sanitize_email',
+            'placeholder' => get_option( 'admin_email' ),
+            'description' => __( 'Endereço que recebe as solicitações de demonstração. Se vazio, usa o e-mail do administrador.', 'sisb' ),
+        ),
+        'sisb_public_email' => array(
+            'label'       => __( 'E-mail público de contato', 'sisb' ),
+            'type'        => 'email',
+            'sanitize'    => 'sanitize_email',
+            'placeholder' => 'contato@seudominio.com.br',
+            'description' => __( 'Exibido no site. Se vazio, o e-mail não aparece.', 'sisb' ),
+        ),
+        'sisb_public_phone' => array(
+            'label'       => __( 'Telefone público', 'sisb' ),
+            'type'        => 'text',
+            'sanitize'    => 'sanitize_text_field',
+            'placeholder' => '+55 (11) 90000-0000',
+            'description' => __( 'Exibido no site. Se vazio, o telefone não aparece.', 'sisb' ),
+        ),
+        'sisb_public_linkedin' => array(
+            'label'       => __( 'LinkedIn', 'sisb' ),
+            'type'        => 'url',
+            'sanitize'    => 'esc_url_raw',
+            'placeholder' => 'https://www.linkedin.com/company/…',
+            'description' => __( 'URL completa. Se vazio, o link não aparece.', 'sisb' ),
+        ),
+        'sisb_app_url' => array(
+            'label'       => __( 'Endereço da aplicação', 'sisb' ),
+            'type'        => 'text',
+            'sanitize'    => 'sanitize_text_field',
+            'placeholder' => wp_parse_url( home_url(), PHP_URL_HOST ) . '/painel',
+            'description' => __( 'Mostrado no mockup de navegador da página inicial. Se vazio, usa o domínio deste site.', 'sisb' ),
+        ),
     );
+
+    foreach ( $fields as $name => $field ) {
+        register_setting( 'general', $name, array(
+            'type'              => 'string',
+            'sanitize_callback' => $field['sanitize'],
+            'default'           => '',
+        ) );
+
+        add_settings_field(
+            $name,
+            $field['label'],
+            function() use ( $name, $field ) {
+                printf(
+                    '<input type="%1$s" name="%2$s" id="%2$s" value="%3$s" class="regular-text" placeholder="%4$s" />',
+                    esc_attr( $field['type'] ),
+                    esc_attr( $name ),
+                    esc_attr( get_option( $name, '' ) ),
+                    esc_attr( $field['placeholder'] )
+                );
+                echo '<p class="description">' . esc_html( $field['description'] ) . '</p>';
+            },
+            'general'
+        );
+    }
 }
 add_action( 'admin_init', 'sisb_register_settings' );
 

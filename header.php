@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
       <a href="#plataforma"><?php esc_html_e( 'Solução', 'sisb' ); ?></a>
       <a href="#funcionalidades"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></a>
       <a href="#mercados"><?php esc_html_e( 'Setores', 'sisb' ); ?></a>
-      <a href="#diferenciais"><?php esc_html_e( 'Clientes', 'sisb' ); ?></a>
+      <a href="#diferenciais"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a>
       <a href="#contato"><?php esc_html_e( 'Contato', 'sisb' ); ?></a>
     </nav>
     <a href="#contato" class="btn btn-primary nav-cta"><?php esc_html_e( 'Agendar Demonstração', 'sisb' ); ?></a>
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
       <a href="#plataforma"><?php esc_html_e( 'Solução', 'sisb' ); ?></a>
       <a href="#funcionalidades"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></a>
       <a href="#mercados"><?php esc_html_e( 'Setores', 'sisb' ); ?></a>
-      <a href="#diferenciais"><?php esc_html_e( 'Clientes', 'sisb' ); ?></a>
+      <a href="#diferenciais"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a>
       <a href="#contato"><?php esc_html_e( 'Contato', 'sisb' ); ?></a>
       <a href="#contato" class="btn btn-primary"><?php esc_html_e( 'Agendar Demonstração', 'sisb' ); ?></a>
     </div>

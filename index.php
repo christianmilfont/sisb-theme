@@ -39,7 +39,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
       <div class="browser">
         <div class="browser-bar">
           <span class="dotr r"></span><span class="dotr y"></span><span class="dotr g"></span>
-          <span class="browser-url">sisb.gov.br/painel</span>
+          <span class="browser-url"><?php echo esc_html( sisb_app_url_label() ); ?></span>
         </div>
         <img src="<?php echo esc_url( $dashboard ); ?>" alt="<?php esc_attr_e( 'Painel SISB com mapa de barragens', 'sisb' ); ?>">
       </div>
@@ -54,11 +54,21 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 <section class="credibility">
   <div class="container">
     <div class="head">
-      <h2><?php esc_html_e( 'Uma plataforma criada para apoiar a fiscalização moderna', 'sisb' ); ?></h2>
-      <p class="section-lead" style="margin-inline:auto"><?php esc_html_e( 'O SISB já apoia iniciativas de fiscalização e gestão de barragens, promovendo digitalização de processos, padronização operacional e centralização de informações críticas.', 'sisb' ); ?></p>
+      <h2><?php esc_html_e( 'Em operação real, não em protótipo', 'sisb' ); ?></h2>
+      <p class="section-lead" style="margin-inline:auto"><?php esc_html_e( 'O SISB está em produção no DAEE / SP Águas, apoiando a fiscalização e a gestão de segurança de barragens do estado de São Paulo — com aplicativo de campo, back-office, portal do empreendedor e integração com o sistema de outorga já existente.', 'sisb' ); ?></p>
     </div>
     <div class="logo-grid">
-      <?php foreach ( array( 'SP Águas', 'Órgãos Reguladores', 'Empresas de Engenharia', 'Concessionárias', 'Secretarias Estaduais', 'Autarquias' ) as $l ) : ?>
+      <?php
+      // Fatos verificáveis do produto — não são clientes.
+      $proof = array(
+        __( 'Aplicativo de campo Android e iOS', 'sisb' ),
+        __( 'Operação offline com sincronização', 'sisb' ),
+        __( 'Back-office web', 'sisb' ),
+        __( 'Portal do empreendedor', 'sisb' ),
+        __( 'API de integração documentada', 'sisb' ),
+        __( 'Trilha de auditoria', 'sisb' ),
+      );
+      foreach ( $proof as $l ) : ?>
         <div class="logo-cell"><?php echo esc_html( $l ); ?></div>
       <?php endforeach; ?>
     </div>
@@ -203,11 +213,12 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
         <p class="section-lead"><?php esc_html_e( 'O SISB foi desenvolvido para ser adaptável às necessidades regulatórias, operacionais e administrativas de diferentes estados, agências fiscalizadoras e organizações responsáveis pela segurança de barragens.', 'sisb' ); ?></p>
         <div class="stats">
           <?php
+          // Cada número precisa ser verificável no próprio produto.
           $stats = array(
-            array( '+1.000', __( 'Inspeções potenciais/mês', 'sisb' ) ),
-            array( 'Multi',  __( 'Operação multiestado', 'sisb' ) ),
-            array( 'Cloud',  __( 'Arquitetura escalável', 'sisb' ) ),
-            array( 'API',    __( 'Integração com sistemas existentes', 'sisb' ) ),
+            array( '3',     __( 'Canais: app de campo, web e portal do empreendedor', 'sisb' ) ),
+            array( '6',     __( 'Perfis de acesso configuráveis', 'sisb' ) ),
+            array( 'Multi', __( 'Unidades regionais resolvidas por geolocalização', 'sisb' ) ),
+            array( 'API',   __( 'Integração com sistemas existentes', 'sisb' ) ),
           );
           foreach ( $stats as $s ) : ?>
             <div class="stat">
@@ -217,34 +228,29 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
           <?php endforeach; ?>
         </div>
       </div>
-      <div class="map-card">
-        <svg viewBox="0 0 500 500" style="width:100%;height:auto" aria-label="<?php esc_attr_e( 'Mapa do Brasil', 'sisb' ); ?>">
-          <defs>
-            <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#2f8f5c" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="#2f8f5c" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <path d="M180 80 L260 70 L310 90 L360 110 L400 150 L420 200 L410 250 L420 300 L390 340 L360 380 L320 410 L270 430 L220 425 L180 410 L150 380 L120 340 L100 290 L95 240 L110 190 L130 150 L150 110 Z"
-            fill="#eef1f5" stroke="#c9d0dc" stroke-width="1.5"/>
-          <?php
-          $pts = array(
-            array(250,200,'SP/MG'), array(310,230,'RJ'), array(200,270,'MS'), array(180,180,'MT'),
-            array(260,120,'PA/TO'), array(340,160,'BA'), array(360,110,'CE/RN'), array(220,340,'PR/SC'),
-            array(200,380,'RS'), array(150,240,'RO'), array(120,200,'AC'), array(300,280,'GO/DF'),
-          );
-          foreach ( $pts as $p ) : ?>
-            <g>
-              <circle cx="<?php echo $p[0]; ?>" cy="<?php echo $p[1]; ?>" r="14" fill="url(#dotGlow)"/>
-              <circle cx="<?php echo $p[0]; ?>" cy="<?php echo $p[1]; ?>" r="4.5" fill="#2f8f5c"/>
-              <text x="<?php echo $p[0]+9; ?>" y="<?php echo $p[1]+4; ?>" font-size="9" font-weight="600" fill="#1e2740"><?php echo esc_html( $p[2] ); ?></text>
-            </g>
-          <?php endforeach; ?>
-        </svg>
-        <div class="map-legend">
-          <span><span class="d" style="background:#2f8f5c"></span> <?php esc_html_e( 'Cobertura ativa', 'sisb' ); ?></span>
-          <span><span class="d" style="background:#1e2740"></span> <?php esc_html_e( 'Pronto para expansão', 'sisb' ); ?></span>
+      <?php
+      // TODO: substituir por captura real do mapa georreferenciado do parque de
+      // barragens (o produto já expõe as coordenadas em /Barragem/coordinates).
+      // Até lá, o bloco apresenta os fatos de arquitetura que sustentam a escala.
+      ?>
+      <div class="module">
+        <div class="module-head">
+          <div class="module-ico"><?php echo sisb_icon( 'layers', 22 ); ?></div>
+          <h3><?php esc_html_e( 'O que sustenta a operação em escala', 'sisb' ); ?></h3>
         </div>
+        <ul>
+          <?php
+          $scale = array(
+            __( 'Unidades regionais com competência resolvida pela coordenada da barragem', 'sisb' ),
+            __( 'Perfis de acesso distintos para órgão, equipe de campo, terceiros e empreendedor', 'sisb' ),
+            __( 'Ambientes de homologação e produção isolados, com implantação automatizada', 'sisb' ),
+            __( 'Importação da base existente de barragens por planilha', 'sisb' ),
+            __( 'Integração com sistemas legados por API, já em produção', 'sisb' ),
+          );
+          foreach ( $scale as $s ) : ?>
+            <li><span class="check"><?php echo sisb_icon( 'check-circ', 16 ); ?></span><span><?php echo esc_html( $s ); ?></span></li>
+          <?php endforeach; ?>
+        </ul>
       </div>
     </div>
   </div>
@@ -254,21 +260,22 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 <section class="results">
   <div class="container">
     <div style="max-width:640px">
-      <span class="eyebrow"><?php esc_html_e( 'Resultados', 'sisb' ); ?></span>
-      <h2 class="section-title"><?php esc_html_e( 'Benefícios para sua organização', 'sisb' ); ?></h2>
+      <span class="eyebrow"><?php esc_html_e( 'Na prática', 'sisb' ); ?></span>
+      <h2 class="section-title"><?php esc_html_e( 'O que muda na operação', 'sisb' ); ?></h2>
     </div>
     <div class="result-grid">
       <?php
+      // Cada item precisa ser demonstrável em uma demo do produto.
       $rs = array(
-        array( '80%',  __( 'Menos papel', 'sisb' ),           __( 'Eliminação progressiva de formulários e relatórios impressos.', 'sisb' ) ),
-        array( '−60%', __( 'Tempo de relatórios', 'sisb' ),   __( 'Geração automatizada com evidências e dados consolidados.', 'sisb' ) ),
-        array( '100%', __( 'Rastreabilidade', 'sisb' ),       __( 'Histórico completo de inspeções, avaliações e responsáveis.', 'sisb' ) ),
-        array( '+',    __( 'Padronização', 'sisb' ),          __( 'Processos de fiscalização uniformes em todas as equipes.', 'sisb' ) ),
-        array( '★',    __( 'Governança', 'sisb' ),            __( 'Melhor controle e visibilidade sobre informações críticas.', 'sisb' ) ),
+        array( 'signal',   __( 'Campo sem conectividade', 'sisb' ),   __( 'A inspeção acontece offline e sincroniza quando houver rede, sem perda de evidência.', 'sisb' ) ),
+        array( 'file',     __( 'Relatório sem redigitação', 'sisb' ), __( 'O PDF é gerado a partir dos dados da vistoria, individualmente ou em lote, com anexo fotográfico.', 'sisb' ) ),
+        array( 'zap',      __( 'Prazos cobrados pelo sistema', 'sisb' ), __( 'Monitores automáticos acompanham vencimentos de plano de segurança e de planos de ação e disparam notificação.', 'sisb' ) ),
+        array( 'workflow', __( 'Mesmo critério em toda a equipe', 'sisb' ), __( 'O formulário de vistoria e o cálculo de risco são idênticos no aplicativo e na web.', 'sisb' ) ),
+        array( 'history',  __( 'Rastreabilidade das operações', 'sisb' ), __( 'Trilha de auditoria consultável, histórico de atribuições e registro de cada sincronização.', 'sisb' ) ),
       );
       foreach ( $rs as $r ) : ?>
         <div class="result">
-          <div class="result-v"><?php echo esc_html( $r[0] ); ?></div>
+          <div class="ico"><?php echo sisb_icon( $r[0], 20 ); ?></div>
           <div class="result-l"><?php echo esc_html( $r[1] ); ?></div>
           <p><?php echo esc_html( $r[2] ); ?></p>
         </div>
@@ -295,11 +302,23 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
           <div class="audience"><?php echo sisb_icon( $a[0], 20 ); ?><span><?php echo esc_html( $a[1] ); ?></span></div>
         <?php endforeach; ?>
       </div>
-      <div class="contact-info">
-        <div><?php echo sisb_icon( 'mail', 16 ); ?> contato@sisb.gov.br</div>
-        <div><?php echo sisb_icon( 'phone', 16 ); ?> +55 (11) 0000-0000</div>
-        <div><?php echo sisb_icon( 'linkedin', 16 ); ?> /company/sisb</div>
-      </div>
+      <?php
+      $c_email    = sisb_contact_field( 'email' );
+      $c_phone    = sisb_contact_field( 'phone' );
+      $c_linkedin = sisb_contact_field( 'linkedin' );
+      if ( $c_email || $c_phone || $c_linkedin ) : ?>
+        <div class="contact-info">
+          <?php if ( $c_email ) : ?>
+            <div><?php echo sisb_icon( 'mail', 16 ); ?> <a href="mailto:<?php echo esc_attr( $c_email ); ?>"><?php echo esc_html( $c_email ); ?></a></div>
+          <?php endif; ?>
+          <?php if ( $c_phone ) : ?>
+            <div><?php echo sisb_icon( 'phone', 16 ); ?> <a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $c_phone ) ); ?>"><?php echo esc_html( $c_phone ); ?></a></div>
+          <?php endif; ?>
+          <?php if ( $c_linkedin ) : ?>
+            <div><?php echo sisb_icon( 'linkedin', 16 ); ?> <a href="<?php echo esc_url( $c_linkedin ); ?>" target="_blank" rel="noopener">LinkedIn</a></div>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
     </div>
 
     <form class="form-card" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
@@ -319,7 +338,20 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
         </div>
       <?php else : ?>
         <?php if ( $status === 'error' ) : ?>
-          <div class="form-error"><?php esc_html_e( 'Não foi possível enviar sua solicitação. Tente novamente ou envie um e-mail direto para contato@sisb.gov.br.', 'sisb' ); ?></div>
+          <div class="form-error">
+            <?php
+            $fallback = sisb_contact_field( 'email' );
+            if ( $fallback ) {
+                printf(
+                    /* translators: %s: e-mail público de contato */
+                    esc_html__( 'Não foi possível enviar sua solicitação. Tente novamente ou escreva diretamente para %s.', 'sisb' ),
+                    esc_html( $fallback )
+                );
+            } else {
+                esc_html_e( 'Não foi possível enviar sua solicitação. Tente novamente em instantes.', 'sisb' );
+            }
+            ?>
+          </div>
         <?php elseif ( $status === 'invalid' ) : ?>
           <div class="form-error"><?php esc_html_e( 'Verifique os campos obrigatórios (Nome, Organização e E-mail).', 'sisb' ); ?></div>
         <?php endif; ?>
