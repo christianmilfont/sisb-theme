@@ -31,12 +31,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           </ul>
         </div>
         <div>
-          <div class="t"><?php esc_html_e( 'Mercados', 'sisb' ); ?></div>
+          <div class="t"><?php esc_html_e( 'Recursos', 'sisb' ); ?></div>
           <ul>
-            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Agências Reguladoras', 'sisb' ); ?></a></li>
-            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Secretarias Estaduais', 'sisb' ); ?></a></li>
-            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Empresas de Engenharia', 'sisb' ); ?></a></li>
-            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Concessionárias', 'sisb' ); ?></a></li>
+            <?php foreach ( sisb_get_static_pages() as $ft_slug => $ft_page ) : ?>
+              <li><a href="<?php echo esc_url( sisb_static_page_url( $ft_slug ) ); ?>"><?php echo esc_html( $ft_page['nav_label'] ); ?></a></li>
+            <?php endforeach; ?>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Setores atendidos', 'sisb' ); ?></a></li>
           </ul>
         </div>
         <div>

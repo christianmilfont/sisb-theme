@@ -25,7 +25,7 @@ if ( ! $module ) {
 get_header();
 ?>
 
-<main class="module-page">
+<main id="conteudo" class="module-page">
   <?php
   sisb_module_part( 'hero',          $module );
   sisb_module_part( 'problema',      $module );

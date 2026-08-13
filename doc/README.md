@@ -34,3 +34,9 @@ nova tela entrar no app, ou houver mudança de escopo no TR.
 
 > Referências a `architecture.md` dentro destes documentos apontam para
 > `daee/doc/architecture.md`, que não é copiado aqui por conter detalhes de infraestrutura.
+
+## Pendências
+
+[`paginas-pendentes.md`](./paginas-pendentes.md) registra as cinco páginas previstas que **não**
+foram construídas por dependerem de informação comercial, jurídica ou de auditoria — e os dois
+questionários (segurança e integração) cujas lacunas o site hoje evita afirmar.

@@ -13,6 +13,10 @@ define( 'SISB_VERSION', '1.1.0' );
  */
 require_once get_template_directory() . '/inc/modules-registry.php';
 require_once get_template_directory() . '/inc/modules.php';
+require_once get_template_directory() . '/inc/pages.php';
+require_once get_template_directory() . '/inc/faq-items.php';
+require_once get_template_directory() . '/inc/schema.php';
+require_once get_template_directory() . '/inc/sitemap.php';
 
 if ( ! function_exists( 'sisb_setup' ) ) :
 function sisb_setup() {
@@ -49,7 +53,7 @@ function sisb_scripts() {
 
     // CSS das páginas internas: só carrega onde é usado.
     // O 404 entra na lista porque reaproveita os mesmos componentes.
-    if ( sisb_current_module() || sisb_is_modules_index() || is_404() ) {
+    if ( sisb_current_module() || sisb_is_modules_index() || sisb_current_static_page() || is_404() ) {
         wp_enqueue_style(
             'sisb-modules',
             get_template_directory_uri() . '/assets/modules.css',

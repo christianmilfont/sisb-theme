@@ -266,6 +266,23 @@ input,textarea,select{font:inherit}
 .footer-cols a:hover{color:var(--primary-deep)}
 .copyright{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--muted-fg)}
 
+/* ============ ACESSIBILIDADE ============
+   Requisitos de e-MAG / WCAG 2.1 AA para venda a órgão público. */
+
+/* Atalho para o conteúdo: invisível até receber foco por teclado */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;padding:12px 20px;
+  background:var(--navy);color:var(--navy-foreground);font-size:14px;font-weight:600;
+  border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+
+/* Foco visível consistente. O navegador só desenha o anel em navegação por
+   teclado (:focus-visible), então isso não polui o clique de mouse. */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+select:focus-visible,summary:focus-visible,details:focus-visible{
+  outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+.dark-section a:focus-visible,.module-cta a:focus-visible,.contact a:focus-visible,
+.module-destaque a:focus-visible{outline-color:#fff}
+
 /* ============ COMPONENTES COMPARTILHADOS ============
    Usados na home e nas páginas internas, por isso vivem aqui e não em
    assets/modules.css. */

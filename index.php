@@ -9,7 +9,7 @@ $status = isset( $_GET['sisb_status'] ) ? sanitize_key( $_GET['sisb_status'] ) :
 $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 ?>
 
-<main>
+<main id="conteudo">
 
 <!-- HERO -->
 <section class="hero">

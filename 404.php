@@ -16,7 +16,7 @@ get_header();
 $groups = sisb_get_populated_groups();
 ?>
 
-<main class="module-page">
+<main id="conteudo" class="module-page">
 
   <section class="module-hero">
     <div class="container">
