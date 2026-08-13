@@ -1,8 +1,8 @@
 /*
 Theme Name: SISB - Fiscalização de Barragens
-Theme URI: https://sisb.gov.br
+Theme URI: https://github.com/christianmilfont/sisb-theme
 Author: SISB
-Author URI: https://sisb.gov.br
+Author URI: https://github.com/christianmilfont/sisb-theme
 Description: Tema institucional premium do SISB (Sistema Integrado de Fiscalização de Barragens). Landing page para captação de leads e solicitações de demonstração. Tom corporativo, executivo, com identidade visual verde institucional e navy.
 Version: 1.0.0
 Requires at least: 5.6
@@ -210,6 +210,7 @@ input,textarea,select{font:inherit}
 @media(min-width:640px){.result-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.result-grid{grid-template-columns:repeat(5,1fr)}}
 .result{padding:24px;border:1px solid var(--border);background:var(--card);border-radius:16px;box-shadow:var(--shadow-soft)}
+.result .ico{width:44px;height:44px;display:grid;place-items:center;border-radius:10px;background:rgba(47,143,92,.1);color:var(--primary-deep)}
 .result-v{font-family:var(--font-display);font-weight:800;font-size:1.75rem;color:var(--primary-deep)}
 .result-l{margin-top:8px;font-size:.9rem;font-weight:600;color:var(--navy)}
 .result p{margin-top:8px;font-size:.75rem;line-height:1.6;color:var(--muted-fg)}
