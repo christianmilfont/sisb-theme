@@ -16,22 +16,22 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
   <div class="container hero-grid">
     <div class="fade-up">
       <div class="seals">
-        <span class="seal"><span class="dot"></span> <?php esc_html_e( 'Plataforma Enterprise', 'sisb' ); ?></span>
-        <span class="seal"><span class="dot"></span> <?php esc_html_e( 'Desenvolvida para Fiscalização de Barragens', 'sisb' ); ?></span>
+        <span class="seal"><span class="dot"></span> <?php esc_html_e( 'Em produção no DAEE / SP Águas', 'sisb' ); ?></span>
+        <span class="seal"><span class="dot"></span> <?php esc_html_e( 'Segurança de barragens e outorga', 'sisb' ); ?></span>
       </div>
       <h1 class="hero-title text-balance">
-        <?php esc_html_e( 'Digitalize toda a operação de fiscalização de barragens em uma', 'sisb' ); ?>
-        <span class="accent"><?php esc_html_e( 'única plataforma', 'sisb' ); ?></span>.
+        <?php esc_html_e( 'Da inspeção em campo à prestação de contas, na', 'sisb' ); ?>
+        <span class="accent"><?php esc_html_e( 'mesma plataforma', 'sisb' ); ?></span>.
       </h1>
       <p class="hero-lead">
-        <?php esc_html_e( 'O SISB integra inspeções, avaliações de risco, relatórios e monitoramento operacional em uma plataforma desenvolvida para órgãos públicos e operadores de barragens.', 'sisb' ); ?>
+        <?php esc_html_e( 'O SISB cobre o ciclo inteiro da fiscalização de barragens: coleta offline em campo, avaliação de risco, planos de segurança com prazo monitorado e comunicação oficial com o empreendedor — que responde pelo próprio portal.', 'sisb' ); ?>
       </p>
       <div class="hero-cta">
         <a href="#contato" class="btn btn-primary btn-lg">
-          <?php esc_html_e( 'Agendar Demonstração', 'sisb' ); ?>
+          <?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?>
           <?php echo sisb_icon( 'arrow', 16 ); ?>
         </a>
-        <a href="#plataforma" class="btn btn-ghost btn-lg"><?php esc_html_e( 'Conhecer a Plataforma', 'sisb' ); ?></a>
+        <a href="<?php echo esc_url( sisb_modules_url() ); ?>" class="btn btn-ghost btn-lg"><?php esc_html_e( 'Conhecer os módulos', 'sisb' ); ?></a>
       </div>
     </div>
 
@@ -43,7 +43,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
         </div>
         <img src="<?php echo esc_url( $dashboard ); ?>" alt="<?php esc_attr_e( 'Painel SISB com mapa de barragens', 'sisb' ); ?>">
       </div>
-      <div class="callout c1"><span class="cico"><?php echo sisb_icon( 'activity', 14 ); ?></span> <?php esc_html_e( 'Inspeções em tempo real', 'sisb' ); ?></div>
+      <div class="callout c1"><span class="cico"><?php echo sisb_icon( 'activity', 14 ); ?></span> <?php esc_html_e( 'Prazos monitorados', 'sisb' ); ?></div>
       <div class="callout c2"><span class="cico"><?php echo sisb_icon( 'pin', 14 ); ?></span> <?php esc_html_e( 'Barragens georreferenciadas', 'sisb' ); ?></div>
       <div class="callout c3"><span class="cico"><?php echo sisb_icon( 'signal', 14 ); ?></span> <?php esc_html_e( 'Sincronização offline', 'sisb' ); ?></div>
     </div>
@@ -106,72 +106,77 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
   <div class="container">
     <div style="display:grid;gap:32px;grid-template-columns:1fr">
       <div>
-        <span class="eyebrow"><?php echo sisb_icon( 'layers', 14 ); ?> <?php esc_html_e( 'A solução SISB', 'sisb' ); ?></span>
-        <h2 class="section-title"><?php esc_html_e( 'Uma plataforma completa para fiscalização de barragens', 'sisb' ); ?></h2>
+        <span class="eyebrow"><?php echo sisb_icon( 'layers', 14 ); ?> <?php esc_html_e( 'A plataforma', 'sisb' ); ?></span>
+        <h2 class="section-title"><?php esc_html_e( 'Doze módulos, três frentes de trabalho', 'sisb' ); ?></h2>
       </div>
-      <p class="section-lead" style="max-width:none"><?php esc_html_e( 'O SISB integra coleta de dados em campo, gestão de inspeções, avaliações técnicas e geração de relatórios em uma única solução digital — pensada para a complexidade do setor regulado.', 'sisb' ); ?></p>
+      <p class="section-lead" style="max-width:none"><?php esc_html_e( 'O que acontece na barragem, o que acontece no escritório e o que sustenta a operação. Cada módulo tem uma página com o fluxo real e as capacidades que podem ser verificadas em uma demonstração.', 'sisb' ); ?></p>
     </div>
-    <div class="cards cols-3">
-      <?php
-      $modules = array(
-        array( 'list',       __( 'Coleta de Dados', 'sisb' ),           array( __( 'Formulários digitais', 'sisb' ), __( 'Captura em campo', 'sisb' ), __( 'Padronização das inspeções', 'sisb' ) ) ),
-        array( 'smartphone', __( 'Aplicativo Mobile', 'sisb' ),         array( __( 'Android e iOS', 'sisb' ), __( 'Operação offline', 'sisb' ), __( 'Sincronização automática', 'sisb' ) ) ),
-        array( 'shield',     __( 'Gestão de Inspeções', 'sisb' ),       array( __( 'Planejamento', 'sisb' ), __( 'Execução', 'sisb' ), __( 'Histórico completo', 'sisb' ) ) ),
-        array( 'building',   __( 'Gestão de Empreendimentos', 'sisb' ), array( __( 'Cadastro de barragens', 'sisb' ), __( 'Dados técnicos', 'sisb' ), __( 'Georreferenciamento', 'sisb' ) ) ),
-        array( 'chart',      __( 'Avaliação de Riscos', 'sisb' ),       array( __( 'CRI e DPA', 'sisb' ), __( 'Matrizes de risco', 'sisb' ), __( 'Indicadores', 'sisb' ) ) ),
-        array( 'file',       __( 'Relatórios e Exportações', 'sisb' ),  array( __( 'PDF e relatórios técnicos', 'sisb' ), __( 'Evidências fotográficas', 'sisb' ), __( 'Compartilhamento controlado', 'sisb' ) ) ),
-      );
-      foreach ( $modules as $m ) : ?>
-        <div class="module">
-          <div class="module-head">
-            <div class="module-ico"><?php echo sisb_icon( $m[0], 22 ); ?></div>
-            <h3><?php echo esc_html( $m[1] ); ?></h3>
-          </div>
-          <ul>
-            <?php foreach ( $m[2] as $b ) : ?>
-              <li><span class="check"><?php echo sisb_icon( 'check-circ', 16 ); ?></span><span><?php echo esc_html( $b ); ?></span></li>
-            <?php endforeach; ?>
-          </ul>
-        </div>
-      <?php endforeach; ?>
-    </div>
+
+    <?php
+    // Os módulos vêm do registro em inc/modules/ — a home e as páginas
+    // internas não podem divergir sobre o que o produto faz.
+    foreach ( sisb_get_populated_groups() as $group ) : ?>
+      <div class="group-head">
+        <?php echo sisb_icon( $group['icon'], 16 ); ?>
+        <h3><?php echo esc_html( $group['label'] ); ?></h3>
+      </div>
+      <div class="cards cols-3 tight">
+        <?php foreach ( $group['modules'] as $slug => $item ) : ?>
+          <a class="module module-link" href="<?php echo esc_url( sisb_module_url( $slug ) ); ?>">
+            <div class="module-head">
+              <div class="module-ico"><?php echo sisb_icon( $item['icon'], 22 ); ?></div>
+              <h3><?php echo esc_html( $item['nav_label'] ); ?></h3>
+            </div>
+            <p class="module-summary"><?php echo esc_html( $item['summary'] ); ?></p>
+            <span class="module-more">
+              <?php esc_html_e( 'Ver módulo', 'sisb' ); ?>
+              <?php echo sisb_icon( 'arrow', 14 ); ?>
+            </span>
+          </a>
+        <?php endforeach; ?>
+      </div>
+    <?php endforeach; ?>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section id="funcionalidades" class="section">
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" class="section">
   <div class="container">
     <div style="max-width:640px">
-      <span class="eyebrow"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></span>
-      <h2 class="section-title"><?php esc_html_e( 'Recursos que apoiam toda a jornada de fiscalização', 'sisb' ); ?></h2>
+      <span class="eyebrow"><?php echo sisb_icon( 'workflow', 14 ); ?> <?php esc_html_e( 'Como funciona', 'sisb' ); ?></span>
+      <h2 class="section-title"><?php esc_html_e( 'Um ciclo, quatro etapas', 'sisb' ); ?></h2>
+      <p class="section-lead"><?php esc_html_e( 'A fiscalização não termina na inspeção. O que dá trabalho é o que vem depois — e é aí que planilha e e-mail param de funcionar.', 'sisb' ); ?></p>
     </div>
-    <div class="features">
+    <ol class="steps cols-4">
       <?php
-      $feats = array(
-        array( 'shield',     __( 'Gestão de Inspeções', 'sisb' ) ),
-        array( 'database',   __( 'Gestão de Barragens', 'sisb' ) ),
-        array( 'scroll',     __( 'Gestão de Requisitos', 'sisb' ) ),
-        array( 'chart',      __( 'Avaliação de Risco', 'sisb' ) ),
-        array( 'file',       __( 'Emissão de Relatórios', 'sisb' ) ),
-        array( 'list',       __( 'Formulários Digitais', 'sisb' ) ),
-        array( 'signal',     __( 'Operação Offline', 'sisb' ) ),
-        array( 'image',      __( 'Captura de Fotos e Vídeos', 'sisb' ) ),
-        array( 'search',     __( 'Gestão de Evidências', 'sisb' ) ),
-        array( 'lock',       __( 'Controle de Acessos', 'sisb' ) ),
-        array( 'workflow',   __( 'Workflow de Aprovação', 'sisb' ) ),
-        array( 'history',    __( 'Histórico de Auditoria', 'sisb' ) ),
-        array( 'pin',        __( 'Geolocalização', 'sisb' ) ),
-        array( 'activity',   __( 'Dashboards Gerenciais', 'sisb' ) ),
-        array( 'chart',      __( 'Indicadores Operacionais', 'sisb' ) ),
-        array( 'plug',       __( 'Integrações via API', 'sisb' ) ),
+      $flow = array(
+        array(
+          __( 'Campo', 'sisb' ),
+          __( 'O fiscal inspeciona com o aplicativo, sem depender de sinal. Formulário por tipo de barragem, evidência fotográfica com coordenada e nível de perigo calculado na hora.', 'sisb' ),
+        ),
+        array(
+          __( 'Análise', 'sisb' ),
+          __( 'No escritório, a vistoria alimenta a avaliação de risco. Categoria de risco e dano potencial saem do mesmo motor de cálculo usado em campo, e a barragem é posicionada na matriz.', 'sisb' ),
+        ),
+        array(
+          __( 'Conformidade', 'sisb' ),
+          __( 'O que a inspeção apontou vira item de plano de ação, com responsável e prazo. O empreendedor propõe a resolução pelo portal e o analista aprova ou rejeita.', 'sisb' ),
+        ),
+        array(
+          __( 'Prestação de contas', 'sisb' ),
+          __( 'Relatório em PDF gerado a partir dos dados, com anexo fotográfico. Trilha de auditoria das operações e painel com a evolução do parque ao longo do tempo.', 'sisb' ),
+        ),
       );
-      foreach ( $feats as $f ) : ?>
-        <div class="feat">
-          <div class="feat-ico"><?php echo sisb_icon( $f[0], 18 ); ?></div>
-          <span><?php echo esc_html( $f[1] ); ?></span>
-        </div>
+      foreach ( $flow as $i => $step ) : ?>
+        <li class="step">
+          <div class="step-n" aria-hidden="true"><?php echo esc_html( str_pad( $i + 1, 2, '0', STR_PAD_LEFT ) ); ?></div>
+          <div>
+            <h3><?php echo esc_html( $step[0] ); ?></h3>
+            <p><?php echo esc_html( $step[1] ); ?></p>
+          </div>
+        </li>
       <?php endforeach; ?>
-    </div>
+    </ol>
   </div>
 </section>
 
@@ -180,17 +185,18 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
   <div class="container">
     <div style="max-width:640px">
       <span class="eyebrow eyebrow-dark"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></span>
-      <h2 class="section-title on-dark"><?php esc_html_e( 'Por que escolher o SISB', 'sisb' ); ?></h2>
+      <h2 class="section-title on-dark"><?php esc_html_e( 'O que distingue o SISB', 'sisb' ); ?></h2>
     </div>
     <div class="dark-cards">
       <?php
+      // Cada diferencial precisa ser verificável em uma demonstração.
       $diffs = array(
-        array( 'shield',   __( 'Especializado em Barragens', 'sisb' ),   __( 'Construído especificamente para processos de fiscalização e gestão de barragens.', 'sisb' ) ),
-        array( 'signal',   __( 'Operação Offline', 'sisb' ),             __( 'Continuidade das atividades mesmo em locais sem conectividade.', 'sisb' ) ),
-        array( 'globe',    __( 'Escalável para Todo o Brasil', 'sisb' ), __( 'Arquitetura preparada para diferentes estados, autarquias e concessionárias.', 'sisb' ) ),
-        array( 'history',  __( 'Rastreabilidade Completa', 'sisb' ),     __( 'Histórico consolidado de inspeções, avaliações e ações executadas.', 'sisb' ) ),
-        array( 'database', __( 'Centralização de Informações', 'sisb' ), __( 'Todos os dados técnicos e operacionais em uma única plataforma.', 'sisb' ) ),
-        array( 'zap',      __( 'Redução de Processos Manuais', 'sisb' ), __( 'Maior produtividade e menor risco operacional.', 'sisb' ) ),
+        array( 'shield',   __( 'Duas cadeias de fiscalização', 'sisb' ),   __( 'Segurança de barragem e fiscalização de outorga no mesmo produto, sobre a mesma base de empreendimentos, barragens e unidades.', 'sisb' ) ),
+        array( 'building', __( 'Plataforma de duas pontas', 'sisb' ),      __( 'O órgão fiscalizador e o empreendedor operam no mesmo sistema. O que o regulado responde entra direto no fluxo do analista.', 'sisb' ) ),
+        array( 'zap',      __( 'Prazo cobrado automaticamente', 'sisb' ),  __( 'Serviços em segundo plano acompanham os vencimentos do plano de segurança e do plano de melhoria, e notificam sem ação humana.', 'sisb' ) ),
+        array( 'signal',   __( 'Campo sem conectividade', 'sisb' ),        __( 'Banco de dados relacional no dispositivo, não apenas formulário em cache. A inspeção é concluída offline e sincroniza depois.', 'sisb' ) ),
+        array( 'workflow', __( 'Mesmo critério nos dois canais', 'sisb' ), __( 'O formulário de vistoria e o cálculo de risco são idênticos no aplicativo e na web. A vistoria não muda de critério ao mudar de tela.', 'sisb' ) ),
+        array( 'database', __( 'Começa com a base que já existe', 'sisb' ), __( 'Importação do parque de barragens por planilha e integração com o sistema de outorga em uso — esta última já rodando em produção.', 'sisb' ) ),
       );
       foreach ( $diffs as $d ) : ?>
         <div class="dark-card">

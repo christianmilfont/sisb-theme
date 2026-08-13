@@ -21,25 +21,28 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <div>
           <div class="t"><?php esc_html_e( 'Produto', 'sisb' ); ?></div>
           <ul>
-            <li><a href="#plataforma"><?php esc_html_e( 'A plataforma', 'sisb' ); ?></a></li>
-            <li><a href="#funcionalidades"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></a></li>
-            <li><a href="#diferenciais"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a></li>
-            <li><a href="#mercados"><?php esc_html_e( 'Operação em escala', 'sisb' ); ?></a></li>
+            <?php if ( sisb_get_modules() ) : ?>
+              <li><a href="<?php echo esc_url( sisb_modules_url() ); ?>"><?php esc_html_e( 'Módulos', 'sisb' ); ?></a></li>
+            <?php endif; ?>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#plataforma' ) ); ?>"><?php esc_html_e( 'A plataforma', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#como-funciona' ) ); ?>"><?php esc_html_e( 'Como funciona', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#diferenciais' ) ); ?>"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Operação em escala', 'sisb' ); ?></a></li>
           </ul>
         </div>
         <div>
           <div class="t"><?php esc_html_e( 'Mercados', 'sisb' ); ?></div>
           <ul>
-            <li><a href="#contato"><?php esc_html_e( 'Agências Reguladoras', 'sisb' ); ?></a></li>
-            <li><a href="#contato"><?php esc_html_e( 'Secretarias Estaduais', 'sisb' ); ?></a></li>
-            <li><a href="#contato"><?php esc_html_e( 'Empresas de Engenharia', 'sisb' ); ?></a></li>
-            <li><a href="#contato"><?php esc_html_e( 'Concessionárias', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Agências Reguladoras', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Secretarias Estaduais', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Empresas de Engenharia', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Concessionárias', 'sisb' ); ?></a></li>
           </ul>
         </div>
         <div>
           <div class="t"><?php esc_html_e( 'Contato', 'sisb' ); ?></div>
           <ul>
-            <li><a href="#contato"><?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?></a></li>
             <?php
             $f_email    = sisb_contact_field( 'email' );
             $f_phone    = sisb_contact_field( 'phone' );

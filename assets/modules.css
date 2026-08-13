@@ -1,0 +1,92 @@
+/*
+ * Páginas de módulo — /modulos/ e /modulos/<slug>/
+ *
+ * Carregado apenas nessas rotas (ver sisb_scripts em functions.php), para que
+ * a home não pague por CSS que não usa.
+ *
+ * Reaproveita os tokens e os componentes já definidos em style.css
+ * (.module, .feat, .browser, .eyebrow, .section-title, .btn). O que segue
+ * cobre somente o que é específico das páginas internas.
+ */
+
+/* ============ TRILHA DE NAVEGAÇÃO ============ */
+.breadcrumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--muted-fg)}
+.breadcrumbs a{transition:color .2s}
+.breadcrumbs a:hover{color:var(--primary-deep)}
+.breadcrumbs [aria-current="page"]{color:var(--navy);font-weight:600}
+
+/* ============ CABEÇALHO DA PÁGINA ============ */
+.module-hero{padding:40px 0 64px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%);border-bottom:1px solid var(--border)}
+.module-hero-grid{margin-top:32px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+@media(min-width:900px){.module-hero-grid{grid-template-columns:1fr auto}}
+.module-hero-title{margin-top:16px;font-size:2rem;line-height:1.15}
+@media(min-width:640px){.module-hero-title{font-size:2.5rem}}
+@media(min-width:1024px){.module-hero-title{font-size:3rem}}
+.module-hero-lead{margin-top:20px;max-width:640px;font-size:1.05rem;line-height:1.65;color:var(--muted-fg)}
+.module-hero .hero-cta{margin-top:32px}
+.module-hero-badge{display:none}
+@media(min-width:900px){
+  .module-hero-badge{display:grid;place-items:center;width:120px;height:120px;border-radius:28px;
+    background:rgba(47,143,92,.1);color:var(--primary-deep);border:1px solid rgba(47,143,92,.2)}
+}
+
+/* ============ O PROBLEMA ============ */
+.module-problema-inner{max-width:760px}
+.module-problema-inner p{margin-top:16px;font-size:1.05rem;line-height:1.7;color:var(--muted-fg)}
+.module-problema-inner p:first-of-type{margin-top:20px}
+
+/* Os componentes de passo (.steps/.step) e de card clicável
+   (.module-link/.module-summary/.module-more) migraram para style.css,
+   porque a home passou a usá-los também. */
+
+/* ============ CAPTURA DE TELA ============ */
+.module-shot{margin:0}
+.module-shot figcaption{margin-top:16px;text-align:center;font-size:.85rem;color:var(--muted-fg)}
+
+/* ============ DESTAQUE ============ */
+.module-destaque{padding:72px 0}
+.module-destaque-inner{display:grid;grid-template-columns:1fr;gap:20px;max-width:820px}
+@media(min-width:768px){.module-destaque-inner{grid-template-columns:auto 1fr;gap:24px}}
+.module-destaque-ico{width:52px;height:52px;display:grid;place-items:center;border-radius:14px;
+  background:rgba(255,255,255,.08);color:var(--primary);border:1px solid rgba(255,255,255,.12)}
+.module-destaque p{margin-top:16px;font-size:1rem;line-height:1.7;color:rgba(245,247,251,.72)}
+
+/* ============ ONDE FUNCIONA / QUEM USA ============ */
+.module-contexto{display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:768px){.module-contexto{grid-template-columns:repeat(2,1fr)}}
+.chips{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
+  border:1px solid var(--border);background:var(--card);font-size:13px;font-weight:500;color:var(--navy)}
+.chip svg{color:var(--primary-deep)}
+
+/* ============ ROADMAP ============
+   Deliberadamente distinto das capacidades: borda tracejada, fundo diferente
+   e etiqueta explícita. A separação visual é o que impede que uma promessa
+   seja lida como entrega. */
+.roadmap{max-width:760px;padding:28px;border-radius:16px;border:1px dashed rgba(30,39,64,.28);background:var(--surface-muted)}
+.roadmap-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.roadmap-tag{display:inline-flex;align-items:center;padding:5px 12px;border-radius:999px;
+  background:var(--navy);color:var(--navy-foreground);font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em}
+.roadmap-head p{font-size:.85rem;color:var(--muted-fg)}
+.roadmap ul{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.roadmap li{position:relative;padding-left:20px;font-size:.9rem;line-height:1.6;color:var(--muted-fg)}
+.roadmap li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:999px;
+  border:1.5px solid var(--muted-fg)}
+
+/* ============ PRÓXIMO MÓDULO ============ */
+.module-next{margin-top:48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:12px;padding:24px 28px;border:1px solid var(--border);background:var(--card);border-radius:16px;
+  transition:all .25s}
+.module-next:hover{border-color:rgba(47,143,92,.4);box-shadow:var(--shadow-soft)}
+.module-next-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-fg)}
+.module-next-title{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);
+  font-weight:700;font-size:1.1rem;color:var(--navy)}
+.module-next:hover .module-next-title{color:var(--primary-deep)}
+
+/* ============ CTA DE PÁGINA INTERNA ============ */
+.module-cta{background:var(--navy);padding:72px 0}
+.module-cta-inner{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+@media(min-width:900px){.module-cta-inner{grid-template-columns:1fr auto}}
+.module-cta p{margin-top:12px;max-width:560px;font-size:1rem;line-height:1.65;color:rgba(245,247,251,.7)}
+.module-cta .btn{white-space:nowrap}

@@ -158,8 +158,11 @@ tipo de barragem.
   vinculada (`POST /AutoInfracao/{id}/notificacao`).
 - Penalidades e constatação de infração modeladas em formulário próprio no app
   (`app/src/screens/auto-de-inspecao-infracao/create-inspecao-infracao-screen/components/penalidades`).
-- Valores de penalidade parametrizados por **UFESP**, configurável em runtime
-  (`GET|PUT /Configuracao/ufesp`).
+- **Cálculo automático do valor da multa**: unidades UFESP × valor da UFESP vigente,
+  com saída formatada em reais (`AutoInfracaoConstants.CalculateUfespTotal`), espelhando
+  a mesma lógica do app (`app/src/utils/ufesp.utils.ts`) — mesmo resultado nos dois canais.
+- Valor da UFESP configurável em tempo de execução (`GET|PUT /Configuracao/ufesp`),
+  sem novo deploy.
 
 **Disponível em:** app mobile ✅ · web ✅ (`/autoinfracoes`, `/autoinspecoes`).
 
@@ -353,7 +356,8 @@ Este é o núcleo técnico do produto e o que mais o diferencia de um "app de ch
   prorrogações.
 - **Monitor automático de eventos** rodando em background (`PSBEventoMonitorService`) — dispara
   notificação quando um prazo se aproxima ou vence.
-- Interface: aba **PSB** no dashboard da barragem + `SimpleGanttChart.tsx` (cronograma visual).
+- Interface: aba **PSB** no dashboard da barragem, com eventos e prazos.
+  (Não usa `SimpleGanttChart.tsx` — o Gantt é exclusivo do PAM, ver D3.)
 
 ---
 
@@ -368,7 +372,9 @@ Este é o núcleo técnico do produto e o que mais o diferencia de um "app de ch
 - **Propostas de resolução** enviadas pelo empreendedor → aprovação/reprovação pelo órgão.
 - **Exportação e importação por barragem** (`GET|POST /barragem/{id}/export|import`).
 - **Monitor em background** (`PlanoAcaoMelhoriaMonitorService`) para vencimento de prazos.
-- Interface: aba dedicada no dashboard da barragem, com cronograma.
+- Interface: aba dedicada no dashboard da barragem, com **cronograma visual em Gantt**
+  (`SimpleGanttChart.tsx` — importado apenas por `PlanoAcaoMelhoria.tsx`; é o único
+  módulo com Gantt).
 
 ---
 
@@ -432,7 +438,11 @@ exportação e importação. Aba própria no dashboard da barragem.
 `EmpreendedoresController`, `EmpreendedorDashboardService`):
 - **Dashboard próprio** com suas barragens e a classificação/faixa de cada uma
   (`BarragensSection.tsx`, `ClassificacaoEmpreendedorCard.tsx`).
-- **Minhas notificações** — recebimento e ciência.
+- **Minhas notificações** — consulta às notificações recebidas.
+  ⚠️ Não há registro de ciência/confirmação de leitura pelo destinatário
+  (busca por `Ciencia`, `DataLeitura`, `ConfirmacaoRecebimento` em `Notificacao`,
+  `HistoricoNotificacao` e `NotificacaoService` → 0 ocorrências). **Não anunciar
+  "ciência" nem "confirmação de recebimento"** — ver D5.
 - **Minhas tramitações** — acompanhar solicitações cadastrais.
 - Envio de **propostas de resolução** para itens de PAM/PAE.
 - Filtros e detalhamento (`GET /Empreendedores/filtro-options`, `/{id}/detalhe`).

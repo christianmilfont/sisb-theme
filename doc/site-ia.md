@@ -174,7 +174,7 @@ Resumo do que entra em cada página. O texto completo sai do `product-modules.md
 - **H1:** O que acontece depois da inspeção
 - **Problema:** a inspeção aponta o problema; a conformidade exige acompanhar a correção — com prazo, responsável e prova.
 - **Como funciona:** recebimento e aprovação do PSB → eventos com prazos → propostas de resolução do empreendedor → aprovação/rejeição do órgão → monitor automático de vencimento → notificação.
-- **Capacidades:** ciclo completo de PSB (aprovar, arquivar, PSB ativo por barragem) · eventos de PSB incluindo **ISE** · gestão e prorrogação de prazos · **PAM** com status e criticidade · **PAE** por barragem e empreendimento · propostas de resolução com aprovação/reprovação em todos os três · exportação e importação de cronograma · cronograma visual (Gantt) · **monitores automáticos em background** para prazos de PSB e PAM · classificação por faixa verde/amarela/vermelha derivada das anomalias.
+- **Capacidades:** ciclo completo de PSB (aprovar, arquivar, PSB ativo por barragem) · eventos de PSB incluindo **ISE** · gestão e prorrogação de prazos · **PAM** com status e criticidade · **PAE** por barragem e empreendimento · propostas de resolução com aprovação/reprovação em todos os três · exportação e importação de cronograma · **cronograma visual em Gantt no PAM** (é o único módulo com Gantt) · **monitores automáticos em background** para prazos de PSB e PAM (o PAE não tem monitor) · classificação por faixa verde/amarela/vermelha derivada das anomalias.
 - ⚠️ **Não citar SMS nem "comprovação de recebimento"** — ver `landing-gap-analysis.md` §1.3.
 - **Diferencial a destacar:** monitores automáticos — o sistema cobra o prazo sozinho.
 - **Conecta com:** Comunicação e Portal · Prontuário · Painel de Dados
@@ -212,7 +212,8 @@ Resumo do que entra em cada página. O texto completo sai do `product-modules.md
 
 #### `/modulos/integracoes/` — Integrações e API
 - **H1:** Conversa com o que você já tem
-- **Capacidades:** API REST documentada em **Swagger/OpenAPI** · **dois esquemas de autenticação** (JWT para usuários, API Key para sistema a sistema) · gestão de API Keys com regeneração e ativação/desativação · **importação de requerimentos do SOE**, individual e em lote · importação de barragens via Excel · exportações Excel e PDF · webhook de push notification.
+- **Capacidades:** API REST documentada em **Swagger/OpenAPI** · **dois esquemas de autenticação** (JWT para usuários, API Key para sistema a sistema) · gestão de API Keys com regeneração e ativação/desativação · **importação de requerimentos do SOE**, individual e em lote · importação de barragens via Excel · exportações nominadas (relatório de classificação em Excel, export/import de PAM e PAE).
+- ⚠️ Não há webhook exposto para terceiros. O push notification é canal de entrega ao usuário, não ponto de integração — ver `product-modules.md` §E1.
 - **Diferencial a destacar:** integração **já em produção** com sistema legado (SOE), não apenas prometida.
 - **Conecta com:** Governança · Prontuário
 - **Fonte:** catálogo G4
