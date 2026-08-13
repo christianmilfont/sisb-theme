@@ -270,3 +270,41 @@ input,textarea,select{font:inherit}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both}
 .delay-1{animation-delay:.12s}
+
+/* ============ MEGA-MENU DE MÓDULOS ============
+   Fica em style.css (e não em assets/modules.css) porque o cabeçalho é
+   renderizado em todas as páginas, inclusive na home. Abre por :hover e por
+   :focus-within, para que a navegação por teclado funcione sem JavaScript. */
+.has-mega{position:relative}
+.mega-trigger{display:inline-flex;align-items:center;gap:6px}
+.mega-trigger svg{transition:transform .2s}
+.has-mega:hover .mega-trigger svg,.has-mega:focus-within .mega-trigger svg{transform:rotate(180deg)}
+.mega{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);
+  width:min(94vw,860px);padding:24px;border-radius:16px;border:1px solid var(--border);
+  background:var(--card);box-shadow:var(--shadow-elegant);
+  opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;z-index:50}
+.has-mega:hover .mega,.has-mega:focus-within .mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.mega-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mega-col-title{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--muted-fg);padding-bottom:10px;
+  border-bottom:1px solid var(--border)}
+.mega-col-title svg{color:var(--primary-deep)}
+.mega-col ul{margin-top:12px;display:flex;flex-direction:column;gap:2px}
+.mega-col a{display:block;padding:8px 10px;border-radius:8px;font-size:14px;font-weight:500;
+  color:var(--navy);transition:background .16s,color .16s}
+.mega-col a:hover,.mega-col a:focus-visible{background:var(--surface);color:var(--primary-deep)}
+.mega-foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.mega-foot a{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--primary-deep)}
+@media(max-width:1023px){.mega{display:none}}
+
+/* Módulos dentro do menu mobile */
+.mobile-group-title{margin-top:14px;font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--muted-fg)}
+.mobile-menu a.mobile-sub{padding-left:12px;font-size:14px;color:var(--muted-fg)}
+
+/* Respeita quem pediu menos movimento */
+@media(prefers-reduced-motion:reduce){
+  .fade-up{animation:none}
+  .mega{transition:none}
+  .module-more svg,.mega-trigger svg{transition:none}
+}
