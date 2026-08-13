@@ -1,6 +1,15 @@
 # SISB — Tema WordPress
 
 Tema institucional premium do **SISB (Sistema Integrado de Fiscalização de Barragens)**. Landing page single-page com formulário de solicitação de demonstração integrado ao `wp_mail`.
+## Utilizado como referencia para textos e direcionamentos os módulos presentes no contrato.
+![alt text](image.png)
+
+---
+
+## Resumo de Gestão e Coleta, principais diferenciais:
+![alt text](image-1.png)
+
+---
 
 ## Instalação
 
