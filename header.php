@@ -68,8 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           </div>
         </span>
       <?php endif; ?>
-      <a href="<?php echo esc_url( sisb_anchor( '#plataforma' ) ); ?>"><?php esc_html_e( 'Solução', 'sisb' ); ?></a>
-      <a href="<?php echo esc_url( sisb_anchor( '#funcionalidades' ) ); ?>"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></a>
+      <a href="<?php echo esc_url( sisb_anchor( '#como-funciona' ) ); ?>"><?php esc_html_e( 'Como funciona', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Setores', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#diferenciais' ) ); ?>"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Contato', 'sisb' ); ?></a>
@@ -92,8 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <?php endforeach; ?>
         <?php endforeach; ?>
       <?php endif; ?>
-      <a href="<?php echo esc_url( sisb_anchor( '#plataforma' ) ); ?>"><?php esc_html_e( 'Solução', 'sisb' ); ?></a>
-      <a href="<?php echo esc_url( sisb_anchor( '#funcionalidades' ) ); ?>"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></a>
+      <a href="<?php echo esc_url( sisb_anchor( '#como-funciona' ) ); ?>"><?php esc_html_e( 'Como funciona', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Setores', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#diferenciais' ) ); ?>"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a>
       <a href="<?php echo esc_url( sisb_anchor( '#contato' ) ); ?>"><?php esc_html_e( 'Contato', 'sisb' ); ?></a>

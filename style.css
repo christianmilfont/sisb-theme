@@ -266,6 +266,36 @@ input,textarea,select{font:inherit}
 .footer-cols a:hover{color:var(--primary-deep)}
 .copyright{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--muted-fg)}
 
+/* ============ COMPONENTES COMPARTILHADOS ============
+   Usados na home e nas páginas internas, por isso vivem aqui e não em
+   assets/modules.css. */
+
+/* Card de módulo clicável */
+.module-link{display:flex;flex-direction:column}
+.module-summary{margin-top:16px;flex:1;font-size:.9rem;line-height:1.65;color:var(--muted-fg)}
+.module-more{margin-top:20px;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;
+  font-weight:600;color:var(--primary-deep)}
+.module-more svg{transition:transform .2s}
+.module-link:hover .module-more svg{transform:translateX(3px)}
+
+/* Passos numerados */
+.steps{margin-top:48px;display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1200px){.steps.cols-4{grid-template-columns:repeat(4,1fr)}}
+.step{display:flex;gap:16px;padding:24px;border:1px solid var(--border);background:var(--card);border-radius:16px;box-shadow:var(--shadow-soft)}
+.step-n{flex-shrink:0;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;
+  background:var(--navy);color:var(--navy-foreground);font-family:var(--font-display);font-weight:800;font-size:.85rem}
+.step h3{font-size:1rem;font-weight:700}
+.step p{margin-top:6px;font-size:.9rem;line-height:1.65;color:var(--muted-fg)}
+
+/* Cabeçalho de grupo dentro de uma seção */
+.group-head{margin-top:48px;display:flex;align-items:center;gap:10px;padding-bottom:12px;
+  border-bottom:1px solid var(--border)}
+.group-head:first-of-type{margin-top:40px}
+.group-head svg{color:var(--primary-deep)}
+.group-head h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-fg)}
+.group-head .cards,.cards.tight{margin-top:24px}
+
 /* fade-up */
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both}

@@ -35,14 +35,9 @@
 .module-problema-inner p{margin-top:16px;font-size:1.05rem;line-height:1.7;color:var(--muted-fg)}
 .module-problema-inner p:first-of-type{margin-top:20px}
 
-/* ============ COMO FUNCIONA ============ */
-.steps{margin-top:48px;display:grid;grid-template-columns:1fr;gap:20px}
-@media(min-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
-.step{display:flex;gap:16px;padding:24px;border:1px solid var(--border);background:var(--card);border-radius:16px;box-shadow:var(--shadow-soft)}
-.step-n{flex-shrink:0;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;
-  background:var(--navy);color:var(--navy-foreground);font-family:var(--font-display);font-weight:800;font-size:.85rem}
-.step h3{font-size:1rem;font-weight:700}
-.step p{margin-top:6px;font-size:.9rem;line-height:1.65;color:var(--muted-fg)}
+/* Os componentes de passo (.steps/.step) e de card clicável
+   (.module-link/.module-summary/.module-more) migraram para style.css,
+   porque a home passou a usá-los também. */
 
 /* ============ CAPTURA DE TELA ============ */
 .module-shot{margin:0}
@@ -78,14 +73,6 @@
 .roadmap li{position:relative;padding-left:20px;font-size:.9rem;line-height:1.6;color:var(--muted-fg)}
 .roadmap li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:999px;
   border:1.5px solid var(--muted-fg)}
-
-/* ============ CARD DE MÓDULO CLICÁVEL ============ */
-.module-link{display:flex;flex-direction:column}
-.module-summary{margin-top:16px;flex:1;font-size:.9rem;line-height:1.65;color:var(--muted-fg)}
-.module-more{margin-top:20px;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;
-  font-weight:600;color:var(--primary-deep)}
-.module-more svg{transition:transform .2s}
-.module-link:hover .module-more svg{transform:translateX(3px)}
 
 /* ============ PRÓXIMO MÓDULO ============ */
 .module-next{margin-top:48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;

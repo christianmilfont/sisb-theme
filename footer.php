@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               <li><a href="<?php echo esc_url( sisb_modules_url() ); ?>"><?php esc_html_e( 'Módulos', 'sisb' ); ?></a></li>
             <?php endif; ?>
             <li><a href="<?php echo esc_url( sisb_anchor( '#plataforma' ) ); ?>"><?php esc_html_e( 'A plataforma', 'sisb' ); ?></a></li>
-            <li><a href="<?php echo esc_url( sisb_anchor( '#funcionalidades' ) ); ?>"><?php esc_html_e( 'Funcionalidades', 'sisb' ); ?></a></li>
+            <li><a href="<?php echo esc_url( sisb_anchor( '#como-funciona' ) ); ?>"><?php esc_html_e( 'Como funciona', 'sisb' ); ?></a></li>
             <li><a href="<?php echo esc_url( sisb_anchor( '#diferenciais' ) ); ?>"><?php esc_html_e( 'Diferenciais', 'sisb' ); ?></a></li>
             <li><a href="<?php echo esc_url( sisb_anchor( '#mercados' ) ); ?>"><?php esc_html_e( 'Operação em escala', 'sisb' ); ?></a></li>
           </ul>
