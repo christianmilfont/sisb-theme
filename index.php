@@ -1,4 +1,3 @@
-```php
 <?php
 /**
  * Main template — SISB Landing
@@ -401,4 +400,4 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 </main>
 
 <?php get_footer(); ?>
-```
+

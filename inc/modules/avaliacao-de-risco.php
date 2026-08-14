@@ -1,4 +1,4 @@
-```php
+
 <?php
 /**
  * Módulo: Avaliação de Risco, CRI, DPA e Matriz de Classificação
@@ -75,4 +75,4 @@ return array(
 
     'relacionados' => array( 'vistorias', 'planos-e-conformidade', 'painel-de-dados' ),
 );
-```
+

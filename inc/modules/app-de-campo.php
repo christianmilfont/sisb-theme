@@ -1,4 +1,4 @@
-```php
+
 <?php
 /**
  * Módulo: App de Campo Offline
@@ -71,4 +71,4 @@ return array(
 
     'relacionados' => array( 'vistorias', 'autos-e-outorga', 'avaliacao-de-risco' ),
 );
-```
+

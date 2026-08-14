@@ -1,4 +1,4 @@
-```php
+
 <?php
 /**
  * Perguntas frequentes.
@@ -139,4 +139,3 @@ function sisb_faq_items() {
 
     );
 }
-```

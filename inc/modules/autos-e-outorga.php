@@ -1,4 +1,4 @@
-```php
+
 <?php
 /**
  * Módulo: Autos de Inspeção, Infração e Fiscalização de Outorga
@@ -77,4 +77,4 @@ return array(
 
     'relacionados' => array( 'vistorias', 'comunicacao-e-portal', 'processos-e-equipe' ),
 );
-```
+
