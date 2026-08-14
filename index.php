@@ -11,41 +11,51 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 
 <main id="conteudo">
 
+
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
     <div class="fade-up">
-      <div class="seals">
-        <span class="seal"><span class="dot"></span> <?php esc_html_e( 'Em produção no DAEE / SP Águas', 'sisb' ); ?></span>
-        <span class="seal"><span class="dot"></span> <?php esc_html_e( 'Segurança de barragens e outorga', 'sisb' ); ?></span>
-      </div>
+      
+
+      <!-- TÍTULO FOCADO EM PROVA DE MERCADO (DAEE / SP ÁGUAS) -->
       <h1 class="hero-title text-balance">
-        <?php esc_html_e( 'Da inspeção em campo à prestação de contas, na', 'sisb' ); ?>
-        <span class="accent"><?php esc_html_e( 'mesma plataforma', 'sisb' ); ?></span>.
+        <?php esc_html_e( 'Plataforma Sisb para digitalizar o ciclo de', 'sisb' ); ?>
+        <span class="accent"><?php esc_html_e( 'fiscalização de barragens', 'sisb' ); ?></span>.
       </h1>
+
+      <!-- SUBTÍTULO COM PROPOSTA DE VALOR COMPLETA -->
       <p class="hero-lead">
-        <?php esc_html_e( 'O SISB cobre o ciclo inteiro da fiscalização de barragens: coleta offline em campo, avaliação de risco, planos de segurança com prazo monitorado e comunicação oficial com o empreendedor, que responde pelo próprio portal.', 'sisb' ); ?>
+        <?php esc_html_e( 'Em produção no DAEE / SP Águas: do campo à conformidade regulatória. Coleta offline via app, avaliação de risco automática, planos de ação com prazos monitorados e portal do empreendedor em uma única operação.', 'sisb' ); ?>
       </p>
+
+      <!-- CTAS DE DUPLO NÍVEL (ALTO + BAIXO ATRITO) -->
       <div class="hero-cta">
-        <a href="#contato" class="btn btn-primary btn-lg">
-          <?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?>
+        <a href="#como-funciona" class="btn btn-primary btn-lg">
+          <?php esc_html_e( 'Ver o SISB em operação', 'sisb' ); ?>
           <?php echo sisb_icon( 'arrow', 16 ); ?>
         </a>
-        <a href="<?php echo esc_url( sisb_modules_url() ); ?>" class="btn btn-ghost btn-lg"><?php esc_html_e( 'Conhecer os módulos', 'sisb' ); ?></a>
+        <a href="#contato" class="btn btn-ghost btn-lg">
+          <?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?>
+        </a>
       </div>
+
     </div>
 
+    <!-- MOCKUP E CALLOUTS DE OPERAÇÃO REAL -->
     <div class="hero-visual fade-up delay-1">
       <div class="browser">
         <div class="browser-bar">
           <span class="dotr r"></span><span class="dotr y"></span><span class="dotr g"></span>
           <span class="browser-url"><?php echo esc_html( sisb_app_url_label() ); ?></span>
         </div>
-        <img src="<?php echo esc_url( $dashboard ); ?>" alt="<?php esc_attr_e( 'Painel SISB com mapa de barragens', 'sisb' ); ?>">
+        <img src="<?php echo esc_url( $dashboard ); ?>" alt="<?php esc_attr_e( 'Painel do SISB em produção no DAEE/SP Águas', 'sisb' ); ?>">
       </div>
-      <div class="callout c1"><span class="cico"><?php echo sisb_icon( 'activity', 14 ); ?></span> <?php esc_html_e( 'Prazos monitorados', 'sisb' ); ?></div>
-      <div class="callout c2"><span class="cico"><?php echo sisb_icon( 'pin', 14 ); ?></span> <?php esc_html_e( 'Barragens georreferenciadas', 'sisb' ); ?></div>
-      <div class="callout c3"><span class="cico"><?php echo sisb_icon( 'signal', 14 ); ?></span> <?php esc_html_e( 'Sincronização offline', 'sisb' ); ?></div>
+      
+      <!-- CALLOUTS REDIGIDOS PARA COMUNICAR DORES RESOLVIDAS -->
+      <div class="callout c1"><span class="cico"><?php echo sisb_icon( 'shield', 14 ); ?></span> <?php esc_html_e( 'Validação no DAEE / SP Águas', 'sisb' ); ?></div>
+      <div class="callout c2"><span class="cico"><?php echo sisb_icon( 'signal', 14 ); ?></span> <?php esc_html_e( 'Inspeção 100% Offline', 'sisb' ); ?></div>
+      <div class="callout c3"><span class="cico"><?php echo sisb_icon( 'activity', 14 ); ?></span> <?php esc_html_e( 'Cobrança de Prazos Automática', 'sisb' ); ?></div>
     </div>
   </div>
 </section>
