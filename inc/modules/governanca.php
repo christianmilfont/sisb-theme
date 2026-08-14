@@ -19,7 +19,7 @@ return array(
     'summary'   => __( 'Seis perfis de acesso com permissões distintas, trilha de auditoria consultável e configuração de parâmetros sem nova implantação.', 'sisb' ),
 
     'problema'  => array(
-        __( 'Fiscal de campo, analista de escritório, empresa contratada e empreendedor não podem enxergar as mesmas telas. Quando o sistema tem um único nível de acesso, a saída acaba sendo o acordo informal — e a senha compartilhada.', 'sisb' ),
+        __( 'Fiscal de campo, analista de escritório, empresa contratada e empreendedor não podem enxergar as mesmas telas. Quando o sistema tem um único nível de acesso, a saída acaba sendo o acordo informal e a senha compartilhada.', 'sisb' ),
         __( 'Órgão público responde por quem fez o quê e quando. Se a resposta depende de consultar o banco de dados ou de perguntar ao fornecedor, a prestação de contas fica refém de terceiros justamente no momento em que ela é cobrada.', 'sisb' ),
     ),
 

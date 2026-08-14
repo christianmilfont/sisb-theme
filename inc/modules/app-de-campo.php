@@ -1,3 +1,4 @@
+```php
 <?php
 /**
  * Módulo: App de Campo Offline
@@ -16,17 +17,17 @@ return array(
     'nav_label' => __( 'App de Campo', 'sisb' ),
     'title'     => __( 'App de Campo Offline', 'sisb' ),
     'h1'        => __( 'Inspeção em campo, com ou sem sinal', 'sisb' ),
-    'summary'   => __( 'Aplicativo Android e iOS com banco de dados completo no dispositivo: a fiscalização acontece integralmente offline e sincroniza quando houver rede.', 'sisb' ),
+    'summary'   => __( 'Aplicativo Android e iOS com banco de dados completo no dispositivo. A fiscalização acontece integralmente offline e sincroniza quando houver rede.', 'sisb' ),
 
     'problema'  => array(
-        __( 'Barragem fica onde não há rede. Quando a coleta depende de conexão, a equipe volta a papel e planilha — e o retrabalho de digitação no escritório vira a norma, não a exceção.', 'sisb' ),
+        __( 'Barragem fica onde não há rede. Quando a coleta depende de conexão, a equipe volta a papel e planilha. O retrabalho de digitação no escritório vira a norma, não a exceção.', 'sisb' ),
         __( 'Pior que o retrabalho é a perda de evidência: foto sem vínculo com o item inspecionado, anotação que não chega, vistoria que precisa ser refeita porque o formulário voltou incompleto.', 'sisb' ),
     ),
 
     'como_funciona' => array(
         array(
             'title' => __( 'A base vai junto para campo', 'sisb' ),
-            'text'  => __( 'Antes do deslocamento, os empreendimentos designados ao fiscal são carregados no dispositivo — cadastro, barragens, histórico e vistorias anteriores.', 'sisb' ),
+            'text'  => __( 'Antes do deslocamento, os empreendimentos designados ao fiscal são carregados no dispositivo. Cadastro, barragens, histórico e vistorias anteriores ficam disponíveis para consulta.', 'sisb' ),
         ),
         array(
             'title' => __( 'A coleta acontece localmente', 'sisb' ),
@@ -38,7 +39,7 @@ return array(
         ),
         array(
             'title' => __( 'Cada sincronização deixa rastro', 'sisb' ),
-            'text'  => __( 'O conteúdo de cada troca fica registrado, o que permite auditar divergências e reconstruir o que foi enviado por qual dispositivo.', 'sisb' ),
+            'text'  => __( 'O conteúdo de cada troca fica registrado, o que permite auditar divergências e reconstruir o que foi enviado por cada dispositivo.', 'sisb' ),
         ),
     ),
 
@@ -61,8 +62,8 @@ return array(
     ),
 
     'destaque' => array(
-        'title' => __( 'Não é cache — é banco de dados', 'sisb' ),
-        'text'  => __( 'A maior parte dos aplicativos de inspeção guarda um formulário em cache e falha quando o fluxo depende de dados relacionados. Aqui o dispositivo carrega o mesmo modelo de dados do servidor, o que permite criar empreendimento, barragem, vistoria e auto em campo, encadeados entre si, sem nenhuma conexão.', 'sisb' ),
+        'title' => __( 'Não é cache, é banco de dados', 'sisb' ),
+        'text'  => __( 'A maior parte dos aplicativos de inspeção guarda um formulário em cache e falha quando o fluxo depende de dados relacionados. Aqui o dispositivo carrega o mesmo modelo de dados do servidor. Isso permite criar empreendimento, barragem, vistoria e auto em campo, todos relacionados entre si, sem nenhuma conexão.', 'sisb' ),
     ),
 
     'canais' => array( 'app' ),
@@ -70,3 +71,4 @@ return array(
 
     'relacionados' => array( 'vistorias', 'autos-e-outorga', 'avaliacao-de-risco' ),
 );
+```

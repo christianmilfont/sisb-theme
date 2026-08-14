@@ -16,7 +16,7 @@ return array(
     'nav_label' => __( 'Painel de Dados', 'sisb' ),
     'title'     => __( 'Painel Gerencial', 'sisb' ),
     'h1'        => __( 'A situação do parque de barragens, agora e ao longo do tempo', 'sisb' ),
-    'summary'   => __( 'Distribuição por faixas de alerta, mapa georreferenciado e série histórica — não apenas a foto do momento.', 'sisb' ),
+    'summary'   => __( 'Distribuição por faixas de alerta, mapa georreferenciado e série histórica, não apenas a foto do momento.', 'sisb' ),
 
     'problema'  => array(
         __( 'Quando a direção pergunta quantas barragens estão em faixa vermelha, alguém abre uma planilha e começa a somar. A resposta chega dias depois e já não corresponde ao que está no sistema.', 'sisb' ),
@@ -26,7 +26,7 @@ return array(
     'como_funciona' => array(
         array(
             'title' => __( 'O painel é a primeira tela', 'sisb' ),
-            'text'  => __( 'Ao entrar no back-office, o usuário cai no painel gerencial. O indicador não é um relatório que alguém precisa pedir — é o ponto de partida do dia.', 'sisb' ),
+            'text'  => __( 'Ao entrar no back-office, o usuário cai no painel gerencial. O indicador não é um relatório que alguém precisa pedir, é o ponto de partida do dia.', 'sisb' ),
         ),
         array(
             'title' => __( 'O parque aparece distribuído por faixa', 'sisb' ),

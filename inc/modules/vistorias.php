@@ -19,7 +19,7 @@ return array(
     'summary'   => __( 'Formulários distintos para barragem de terra e de concreto, com registro fotográfico georreferenciado e cálculo automático do Nível de Perigo Global.', 'sisb' ),
 
     'problema'  => array(
-        __( 'Quando cada equipe usa a sua planilha, duas inspeções da mesma estrutura não são comparáveis — e a evolução de uma anomalia ao longo do tempo deixa de ser visível.', 'sisb' ),
+        __( 'Quando cada equipe usa a sua planilha, duas inspeções da mesma estrutura não são comparáveis e a evolução de uma anomalia ao longo do tempo deixa de ser visível.', 'sisb' ),
         __( 'O agravante é a nota final: calculada à mão, ela varia com quem preencheu, o que fragiliza qualquer decisão tomada a partir dela.', 'sisb' ),
     ),
 
@@ -38,7 +38,7 @@ return array(
         ),
         array(
             'title' => __( 'A vistoria tem ciclo formal', 'sisb' ),
-            'text'  => __( 'Rascunho, transferência de responsável, conclusão e cancelamento — cada transição com autor registrado.', 'sisb' ),
+            'text'  => __( 'Rascunho, transferência de responsável, conclusão e cancelamento, cada transição com autor registrado.', 'sisb' ),
         ),
         array(
             'title' => __( 'A comparação com a anterior é direta', 'sisb' ),
@@ -66,7 +66,7 @@ return array(
 
     'destaque' => array(
         'title' => __( 'O mesmo cálculo no campo e no escritório', 'sisb' ),
-        'text'  => __( 'O formulário e o motor de cálculo do NPG são os mesmos no aplicativo e na web. Uma vistoria iniciada em campo e concluída no escritório não muda de critério no caminho — o que elimina a divergência que costuma aparecer quando os dois canais são sistemas diferentes.', 'sisb' ),
+        'text'  => __( 'O formulário e o motor de cálculo do NPG são os mesmos no aplicativo e na web. Uma vistoria iniciada em campo e concluída no escritório não muda de critério no caminho, o que elimina a divergência que costuma aparecer quando os dois canais são sistemas diferentes.', 'sisb' ),
     ),
 
     'canais' => array( 'app', 'web' ),

@@ -30,7 +30,7 @@ function sisb_module_groups() {
     return array(
         'coleta' => array(
             'label' => __( 'Coleta em campo', 'sisb' ),
-            'lead'  => __( 'O que acontece na barragem: inspeção, evidência e instrumento de fiscalização — com ou sem conectividade.', 'sisb' ),
+            'lead'  => __( 'O que acontece na barragem: inspeção, evidência e instrumento de fiscalização, com ou sem conectividade.', 'sisb' ),
             'icon'  => 'smartphone',
         ),
         'gestao' => array(

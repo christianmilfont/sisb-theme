@@ -20,7 +20,7 @@ return array(
 
     'problema'  => array(
         __( 'A inspeção termina e o trabalho recomeça: alguém redigita no editor de texto o que já foi preenchido no formulário, escolhe fotos em uma pasta e monta o documento à mão. O relatório demora mais que a vistoria.', 'sisb' ),
-        __( 'Depois o arquivo some. PSB, PAE, laudos e projetos ficam em unidades de rede, caixas de e-mail e pastas pessoais — e quem precisa reconstituir o histórico de uma barragem começa perguntando quem tem o arquivo.', 'sisb' ),
+        __( 'Depois o arquivo some. PSB, PAE, laudos e projetos ficam em unidades de rede, caixas de e-mail, pastas pessoais e quem precisa reconstituir o histórico de uma barragem começa perguntando quem tem o arquivo.', 'sisb' ),
     ),
 
     'como_funciona' => array(

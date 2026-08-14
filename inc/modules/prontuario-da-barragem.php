@@ -26,7 +26,7 @@ return array(
     'como_funciona' => array(
         array(
             'title' => __( 'O cadastro começa por quem responde', 'sisb' ),
-            'text'  => __( 'Empreendimento e empreendedor são cadastrados com validação de CPF e CNPJ, e ligados por vínculo com papel definido — uma pessoa pode responder por mais de um empreendimento.', 'sisb' ),
+            'text'  => __( 'Empreendimento e empreendedor são cadastrados com validação de CPF e CNPJ, e ligados por vínculo com papel definido, uma pessoa pode responder por mais de um empreendimento.', 'sisb' ),
         ),
         array(
             'title' => __( 'A barragem entra georreferenciada', 'sisb' ),

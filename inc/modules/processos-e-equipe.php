@@ -20,7 +20,7 @@ return array(
 
     'problema'  => array(
         __( 'A distribuição do trabalho costuma acontecer por e-mail e conversa. Funciona enquanto a equipe é pequena. Passa disso, e responder quantos processos estão em revisão, ou qual técnico está sobrecarregado, exige perguntar de mesa em mesa.', 'sisb' ),
-        __( 'Some-se a isso a demanda que chega de fora: pedido de atualização cadastral, vínculo de representante, contestação de classificação. Sem fila formal, cada um desses pedidos vira uma pendência pessoal de quem recebeu — e some quando essa pessoa sai de férias.', 'sisb' ),
+        __( 'Some-se a isso a demanda que chega de fora: pedido de atualização cadastral, vínculo de representante, contestação de classificação. Sem fila formal, cada um desses pedidos vira uma pendência pessoal de quem recebeu e some quando essa pessoa sai de férias.', 'sisb' ),
     ),
 
     'como_funciona' => array(

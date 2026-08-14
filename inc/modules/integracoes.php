@@ -19,7 +19,7 @@ return array(
     'summary'   => __( 'API documentada com autenticação por token e por chave de serviço, importação da base existente e integração já em produção com sistema legado.', 'sisb' ),
 
     'problema'  => array(
-        __( 'Nenhum órgão começa do zero. Já existe o sistema de outorga, a base de cadastro, a planilha que a equipe mantém há anos. Um produto que ignora isso obriga a digitar duas vezes o mesmo dado — e a divergência entre as duas bases aparece em poucos meses.', 'sisb' ),
+        __( 'Nenhum órgão começa do zero. Já existe o sistema de outorga, a base de cadastro, a planilha que a equipe mantém há anos. Um produto que ignora isso obriga a digitar duas vezes o mesmo dado e a divergência entre as duas bases aparece em poucos meses.', 'sisb' ),
         __( 'A objeção costuma vir da área de TI, e é legítima: como o dado entra, como ele sai, com qual credencial e com qual documentação. Sem resposta a isso, a integração vira um projeto à parte, com prazo e custo próprios.', 'sisb' ),
     ),
 
@@ -67,7 +67,7 @@ return array(
 
     'destaque' => array(
         'title' => __( 'Integração comprovada, não prometida', 'sisb' ),
-        'text'  => __( 'A importação de requerimentos do SOE, o sistema legado de outorga, já roda em produção — individual por protocolo e em lote. A diferença para um roteiro de integração no papel é que o caminho de dados já foi percorrido, com os problemas de formato e de duplicidade resolvidos em operação real.', 'sisb' ),
+        'text'  => __( 'A importação de requerimentos do SOE, o sistema legado de outorga, já roda em produção, individual por protocolo e em lote. A diferença para um roteiro de integração no papel é que o caminho de dados já foi percorrido, com os problemas de formato e de duplicidade resolvidos em operação real.', 'sisb' ),
     ),
 
     'canais' => array( 'api' ),

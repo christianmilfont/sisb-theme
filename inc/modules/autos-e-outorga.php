@@ -1,3 +1,4 @@
+```php
 <?php
 /**
  * Módulo: Autos de Inspeção, Infração e Fiscalização de Outorga
@@ -16,11 +17,11 @@ return array(
     'nav_label' => __( 'Autos e Outorga', 'sisb' ),
     'title'     => __( 'Autos de Inspeção, Infração e Fiscalização de Outorga', 'sisb' ),
     'h1'        => __( 'Do registro à sanção, no mesmo fluxo', 'sisb' ),
-    'summary'   => __( 'Auto de inspeção, auto de infração com PDF e penalidade parametrizada, e a trilha paralela de fiscalização de outorga e uso de recursos hídricos.', 'sisb' ),
+    'summary'   => __( 'Auto de inspeção, auto de infração com PDF e penalidade parametrizada, além da fiscalização de outorga e do uso de recursos hídricos.', 'sisb' ),
 
     'problema'  => array(
-        __( 'O auto é o documento que sustenta a sanção. Quando ele nasce em papel e é redigitado depois, o intervalo entre a constatação e a lavratura cresce — e com ele o risco de divergência entre o que o fiscal viu e o que o processo registra.', 'sisb' ),
-        __( 'A base de cálculo agrava o problema. Penalidade referenciada em UFESP calculada fora do sistema depende de alguém lembrar do valor vigente, e o erro só aparece quando a autuação é questionada.', 'sisb' ),
+        __( 'O auto é o documento que sustenta a sanção. Quando ele nasce em papel e é redigitado depois, o intervalo entre a constatação e a lavratura aumenta. Com isso, cresce também o risco de divergência entre o que o fiscal viu e o que o processo registra.', 'sisb' ),
+        __( 'A base de cálculo agrava o problema. Penalidade referenciada em UFESP e calculada fora do sistema depende de alguém lembrar do valor vigente. O erro só aparece quando a autuação é questionada.', 'sisb' ),
     ),
 
     'como_funciona' => array(
@@ -34,7 +35,7 @@ return array(
         ),
         array(
             'title' => __( 'A penalidade usa a UFESP vigente', 'sisb' ),
-            'text'  => __( 'O valor da multa sai das unidades UFESP aplicadas, multiplicadas pela UFESP vigente — com o mesmo cálculo no aplicativo e no servidor. A atualização do valor é feita pela administração do sistema, sem novo deploy.', 'sisb' ),
+            'text'  => __( 'O valor da multa sai das unidades UFESP aplicadas, multiplicadas pela UFESP vigente. O mesmo cálculo é utilizado no aplicativo e no servidor. A atualização do valor é feita pela administração do sistema, sem novo deploy.', 'sisb' ),
         ),
         array(
             'title' => __( 'O auto de infração vira documento e notificação', 'sisb' ),
@@ -76,3 +77,4 @@ return array(
 
     'relacionados' => array( 'vistorias', 'comunicacao-e-portal', 'processos-e-equipe' ),
 );
+```

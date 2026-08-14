@@ -1,3 +1,4 @@
+```php
 <?php
 /**
  * Main template — SISB Landing
@@ -24,7 +25,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
         <span class="accent"><?php esc_html_e( 'mesma plataforma', 'sisb' ); ?></span>.
       </h1>
       <p class="hero-lead">
-        <?php esc_html_e( 'O SISB cobre o ciclo inteiro da fiscalização de barragens: coleta offline em campo, avaliação de risco, planos de segurança com prazo monitorado e comunicação oficial com o empreendedor — que responde pelo próprio portal.', 'sisb' ); ?>
+        <?php esc_html_e( 'O SISB cobre o ciclo inteiro da fiscalização de barragens: coleta offline em campo, avaliação de risco, planos de segurança com prazo monitorado e comunicação oficial com o empreendedor, que responde pelo próprio portal.', 'sisb' ); ?>
       </p>
       <div class="hero-cta">
         <a href="#contato" class="btn btn-primary btn-lg">
@@ -55,11 +56,11 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
   <div class="container">
     <div class="head">
       <h2><?php esc_html_e( 'Em operação real, não em protótipo', 'sisb' ); ?></h2>
-      <p class="section-lead" style="margin-inline:auto"><?php esc_html_e( 'O SISB está em produção no DAEE / SP Águas, apoiando a fiscalização e a gestão de segurança de barragens do estado de São Paulo — com aplicativo de campo, back-office, portal do empreendedor e integração com o sistema de outorga já existente.', 'sisb' ); ?></p>
+      <p class="section-lead" style="margin-inline:auto"><?php esc_html_e( 'O SISB está em produção no DAEE / SP Águas, apoiando a fiscalização e a gestão de segurança de barragens do estado de São Paulo, com aplicativo de campo, back-office, portal do empreendedor e integração com o sistema de outorga já existente.', 'sisb' ); ?></p>
     </div>
     <div class="logo-grid">
       <?php
-      // Fatos verificáveis do produto — não são clientes.
+      // Fatos verificáveis do produto, não são clientes.
       $proof = array(
         __( 'Aplicativo de campo Android e iOS', 'sisb' ),
         __( 'Operação offline com sincronização', 'sisb' ),
@@ -85,9 +86,9 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
     <div class="cards cols-4">
       <?php
       $challenges = array(
-        array( 'branch',  __( 'Processos descentralizados', 'sisb' ),         __( 'Informações distribuídas entre planilhas, documentos e sistemas isolados.', 'sisb' ) ),
-        array( 'search',  __( 'Baixa rastreabilidade', 'sisb' ),              __( 'Dificuldade para acompanhar histórico de inspeções e ações corretivas.', 'sisb' ) ),
-        array( 'signal',  __( 'Operação em campo limitada', 'sisb' ),         __( 'Coletas realizadas manualmente e sujeitas a inconsistências.', 'sisb' ) ),
+        array( 'branch',  __( 'Processos descentralizados', 'sisb' ), __( 'Informações distribuídas entre planilhas, documentos e sistemas isolados.', 'sisb' ) ),
+        array( 'search',  __( 'Baixa rastreabilidade', 'sisb' ), __( 'Dificuldade para acompanhar histórico de inspeções e ações corretivas.', 'sisb' ) ),
+        array( 'signal',  __( 'Operação em campo limitada', 'sisb' ), __( 'Coletas realizadas manualmente e sujeitas a inconsistências.', 'sisb' ) ),
         array( 'scroll',  __( 'Conformidade regulatória complexa', 'sisb' ), __( 'Necessidade constante de atender requisitos técnicos e normativos.', 'sisb' ) ),
       );
       foreach ( $challenges as $c ) : ?>
@@ -113,7 +114,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
     </div>
 
     <?php
-    // Os módulos vêm do registro em inc/modules/ — a home e as páginas
+    // Os módulos vêm do registro em inc/modules/. A home e as páginas
     // internas não podem divergir sobre o que o produto faz.
     foreach ( sisb_get_populated_groups() as $group ) : ?>
       <div class="group-head">
@@ -145,7 +146,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
     <div style="max-width:640px">
       <span class="eyebrow"><?php echo sisb_icon( 'workflow', 14 ); ?> <?php esc_html_e( 'Como funciona', 'sisb' ); ?></span>
       <h2 class="section-title"><?php esc_html_e( 'Um ciclo, quatro etapas', 'sisb' ); ?></h2>
-      <p class="section-lead"><?php esc_html_e( 'A fiscalização não termina na inspeção. O que dá trabalho é o que vem depois — e é aí que planilha e e-mail param de funcionar.', 'sisb' ); ?></p>
+      <p class="section-lead"><?php esc_html_e( 'A fiscalização não termina na inspeção. O que dá trabalho é o que vem depois. É aí que planilha e e-mail param de funcionar.', 'sisb' ); ?></p>
     </div>
     <ol class="steps cols-4">
       <?php
@@ -191,12 +192,12 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
       <?php
       // Cada diferencial precisa ser verificável em uma demonstração.
       $diffs = array(
-        array( 'shield',   __( 'Duas cadeias de fiscalização', 'sisb' ),   __( 'Segurança de barragem e fiscalização de outorga no mesmo produto, sobre a mesma base de empreendimentos, barragens e unidades.', 'sisb' ) ),
-        array( 'building', __( 'Plataforma de duas pontas', 'sisb' ),      __( 'O órgão fiscalizador e o empreendedor operam no mesmo sistema. O que o regulado responde entra direto no fluxo do analista.', 'sisb' ) ),
-        array( 'zap',      __( 'Prazo cobrado automaticamente', 'sisb' ),  __( 'Serviços em segundo plano acompanham os vencimentos do plano de segurança e do plano de melhoria, e notificam sem ação humana.', 'sisb' ) ),
-        array( 'signal',   __( 'Campo sem conectividade', 'sisb' ),        __( 'Banco de dados relacional no dispositivo, não apenas formulário em cache. A inspeção é concluída offline e sincroniza depois.', 'sisb' ) ),
+        array( 'shield',   __( 'Duas cadeias de fiscalização', 'sisb' ), __( 'Segurança de barragem e fiscalização de outorga no mesmo produto, sobre a mesma base de empreendimentos, barragens e unidades.', 'sisb' ) ),
+        array( 'building', __( 'Plataforma de duas pontas', 'sisb' ), __( 'O órgão fiscalizador e o empreendedor operam no mesmo sistema. O que o regulado responde entra direto no fluxo do analista.', 'sisb' ) ),
+        array( 'zap',      __( 'Prazo cobrado automaticamente', 'sisb' ), __( 'Serviços em segundo plano acompanham os vencimentos do plano de segurança e do plano de melhoria, e notificam sem ação humana.', 'sisb' ) ),
+        array( 'signal',   __( 'Campo sem conectividade', 'sisb' ), __( 'Banco de dados relacional no dispositivo, não apenas formulário em cache. A inspeção é concluída offline e sincroniza depois.', 'sisb' ) ),
         array( 'workflow', __( 'Mesmo critério nos dois canais', 'sisb' ), __( 'O formulário de vistoria e o cálculo de risco são idênticos no aplicativo e na web. A vistoria não muda de critério ao mudar de tela.', 'sisb' ) ),
-        array( 'database', __( 'Começa com a base que já existe', 'sisb' ), __( 'Importação do parque de barragens por planilha e integração com o sistema de outorga em uso — esta última já rodando em produção.', 'sisb' ) ),
+        array( 'database', __( 'Começa com a base que já existe', 'sisb' ), __( 'Importação do parque de barragens por planilha e integração com o sistema de outorga em uso. Esta última já está rodando em produção.', 'sisb' ) ),
       );
       foreach ( $diffs as $d ) : ?>
         <div class="dark-card">
@@ -236,7 +237,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
       </div>
       <?php
       // TODO: substituir por captura real do mapa georreferenciado do parque de
-      // barragens (o produto já expõe as coordenadas em /Barragem/coordinates).
+      // barragens. O produto já expõe as coordenadas em /Barragem/coordinates.
       // Até lá, o bloco apresenta os fatos de arquitetura que sustentam a escala.
       ?>
       <div class="module">
@@ -273,7 +274,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
       <?php
       // Cada item precisa ser demonstrável em uma demo do produto.
       $rs = array(
-        array( 'signal',   __( 'Campo sem conectividade', 'sisb' ),   __( 'A inspeção acontece offline e sincroniza quando houver rede, sem perda de evidência.', 'sisb' ) ),
+        array( 'signal',   __( 'Campo sem conectividade', 'sisb' ), __( 'A inspeção acontece offline e sincroniza quando houver rede, sem perda de evidência.', 'sisb' ) ),
         array( 'file',     __( 'Relatório sem redigitação', 'sisb' ), __( 'O PDF é gerado a partir dos dados da vistoria, individualmente ou em lote, com anexo fotográfico.', 'sisb' ) ),
         array( 'zap',      __( 'Prazos cobrados pelo sistema', 'sisb' ), __( 'Monitores automáticos acompanham vencimentos de plano de segurança e de planos de ação e disparam notificação.', 'sisb' ) ),
         array( 'workflow', __( 'Mesmo critério em toda a equipe', 'sisb' ), __( 'O formulário de vistoria e o cálculo de risco são idênticos no aplicativo e na web.', 'sisb' ) ),
@@ -400,3 +401,4 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 </main>
 
 <?php get_footer(); ?>
+```

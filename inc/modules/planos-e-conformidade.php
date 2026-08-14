@@ -20,7 +20,7 @@ return array(
 
     'problema'  => array(
         __( 'A inspeção aponta o problema. A conformidade exige acompanhar a correção: quem responde, em que prazo e com que prova. É a parte do trabalho que sobrevive por mais tempo em planilha, e a que menos aguenta viver nela.', 'sisb' ),
-        __( 'O efeito prático é o prazo que vence em silêncio. Ninguém abriu a planilha naquela semana, o empreendedor não foi cobrado, e a pendência só reaparece na inspeção seguinte — quando já não há como demonstrar que houve acompanhamento.', 'sisb' ),
+        __( 'O efeito prático é o prazo que vence em silêncio. Ninguém abriu a planilha naquela semana, o empreendedor não foi cobrado, e a pendência só reaparece na inspeção seguinte, quando já não há como demonstrar que houve acompanhamento.', 'sisb' ),
     ),
 
     'como_funciona' => array(
