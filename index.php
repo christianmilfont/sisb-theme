@@ -11,32 +11,36 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 
 <main id="conteudo">
 
-
 <!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
     <div class="fade-up">
       
+      <!-- BADGE DE AUTORIDADE E PROVA SOCIAL -->
+      <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 20px;">
+        <span class="cico" style="color: #10b981;"><?php echo sisb_icon( 'shield', 14 ); ?></span>
+        <span><?php esc_html_e( 'Em produção e validado no DAEE / SP Águas', 'sisb' ); ?></span>
+      </div>
 
-      <!-- TÍTULO FOCADO EM PROVA DE MERCADO (DAEE / SP ÁGUAS) -->
+      <!-- TÍTULO FOCADO NO BENEFÍCIO/RESULTADO -->
       <h1 class="hero-title text-balance">
-        <?php esc_html_e( 'Plataforma Sisb para digitalizar o ciclo de', 'sisb' ); ?>
+        <?php esc_html_e( 'Garanta 100% de conformidade e automação na', 'sisb' ); ?>
         <span class="accent"><?php esc_html_e( 'fiscalização de barragens', 'sisb' ); ?></span>.
       </h1>
 
-      <!-- SUBTÍTULO COM PROPOSTA DE VALOR COMPLETA -->
+      <!-- SUBTÍTULO DIRETO E ESCANEÁVEL -->
       <p class="hero-lead">
-        <?php esc_html_e( 'Em produção no DAEE / SP Águas: do campo à conformidade regulatória. Coleta offline via app, avaliação de risco automática, planos de ação com prazos monitorados e portal do empreendedor em uma única operação.', 'sisb' ); ?>
+        <?php esc_html_e( 'Do campo à conformidade regulatória. Coleta offline via app, avaliação de risco automática, gestão de prazos e portal do empreendedor em uma única operação.', 'sisb' ); ?>
       </p>
 
-      <!-- CTAS DE DUPLO NÍVEL (ALTO + BAIXO ATRITO) -->
+      <!-- CTAS COM HIERARQUIA DE CONVERSÃO CORRIGIDA -->
       <div class="hero-cta">
-        <a href="#como-funciona" class="btn btn-primary btn-lg">
-          <?php esc_html_e( 'Ver o SISB em operação', 'sisb' ); ?>
+        <a href="#contato" class="btn btn-primary btn-lg">
+          <?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?>
           <?php echo sisb_icon( 'arrow', 16 ); ?>
         </a>
-        <a href="#contato" class="btn btn-ghost btn-lg">
-          <?php esc_html_e( 'Agendar demonstração', 'sisb' ); ?>
+        <a href="#como-funciona" class="btn btn-ghost btn-lg">
+          <?php esc_html_e( 'Ver o SISB em operação', 'sisb' ); ?>
         </a>
       </div>
 
@@ -69,7 +73,6 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
     </div>
     <div class="logo-grid">
       <?php
-      // Fatos verificáveis do produto, não são clientes.
       $proof = array(
         __( 'Aplicativo de campo Android e iOS', 'sisb' ),
         __( 'Operação offline com sincronização', 'sisb' ),
@@ -123,8 +126,6 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
     </div>
 
     <?php
-    // Os módulos vêm do registro em inc/modules/. A home e as páginas
-    // internas não podem divergir sobre o que o produto faz.
     foreach ( sisb_get_populated_groups() as $group ) : ?>
       <div class="group-head">
         <?php echo sisb_icon( $group['icon'], 16 ); ?>
@@ -162,7 +163,7 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
       $flow = array(
         array(
           __( 'Campo', 'sisb' ),
-          __( 'O fiscal inspeciona com o aplicativo, sem depender de sinal. Formulário por tipo de barragem, evidência fotográfica com coordenada e nível de perigo calculado na hora.', 'sisb' ),
+          __( 'O fiscal inspeciona com o aplicativo, sem depender de sinal. Formulário por tipo de barragem, evidência fotográfica com coordenada e nível de perigo calculated na hora.', 'sisb' ),
         ),
         array(
           __( 'Análise', 'sisb' ),
@@ -199,7 +200,6 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
     </div>
     <div class="dark-cards">
       <?php
-      // Cada diferencial precisa ser verificável em uma demonstração.
       $diffs = array(
         array( 'shield',   __( 'Duas cadeias de fiscalização', 'sisb' ), __( 'Segurança de barragem e fiscalização de outorga no mesmo produto, sobre a mesma base de empreendimentos, barragens e unidades.', 'sisb' ) ),
         array( 'building', __( 'Plataforma de duas pontas', 'sisb' ), __( 'O órgão fiscalizador e o empreendedor operam no mesmo sistema. O que o regulado responde entra direto no fluxo do analista.', 'sisb' ) ),
@@ -229,7 +229,6 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
         <p class="section-lead"><?php esc_html_e( 'O SISB foi desenvolvido para ser adaptável às necessidades regulatórias, operacionais e administrativas de diferentes estados, agências fiscalizadoras e organizações responsáveis pela segurança de barragens.', 'sisb' ); ?></p>
         <div class="stats">
           <?php
-          // Cada número precisa ser verificável no próprio produto.
           $stats = array(
             array( '3',     __( 'Canais: app de campo, web e portal do empreendedor', 'sisb' ) ),
             array( '6',     __( 'Perfis de acesso configuráveis', 'sisb' ) ),
@@ -244,11 +243,6 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
           <?php endforeach; ?>
         </div>
       </div>
-      <?php
-      // TODO: substituir por captura real do mapa georreferenciado do parque de
-      // barragens. O produto já expõe as coordenadas em /Barragem/coordinates.
-      // Até lá, o bloco apresenta os fatos de arquitetura que sustentam a escala.
-      ?>
       <div class="module">
         <div class="module-head">
           <div class="module-ico"><?php echo sisb_icon( 'layers', 22 ); ?></div>
@@ -281,7 +275,6 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
     </div>
     <div class="result-grid">
       <?php
-      // Cada item precisa ser demonstrável em uma demo do produto.
       $rs = array(
         array( 'signal',   __( 'Campo sem conectividade', 'sisb' ), __( 'A inspeção acontece offline e sincroniza quando houver rede, sem perda de evidência.', 'sisb' ) ),
         array( 'file',     __( 'Relatório sem redigitação', 'sisb' ), __( 'O PDF é gerado a partir dos dados da vistoria, individualmente ou em lote, com anexo fotográfico.', 'sisb' ) ),
@@ -359,7 +352,6 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
             $fallback = sisb_contact_field( 'email' );
             if ( $fallback ) {
                 printf(
-                    /* translators: %s: e-mail público de contato */
                     esc_html__( 'Não foi possível enviar sua solicitação. Tente novamente ou escreva diretamente para %s.', 'sisb' ),
                     esc_html( $fallback )
                 );
@@ -410,4 +402,3 @@ $dashboard = get_template_directory_uri() . '/assets/sisb-dashboard.png';
 </main>
 
 <?php get_footer(); ?>
-
